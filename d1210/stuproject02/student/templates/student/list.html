@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            text-align: center;
+            border-collapse: collapse;
+            border:1px solid black;
+        }
+        td{
+            width: 150px;
+            height: 50px;
+        }
+        *{
+            text-align: center;
+        }
+        table{
+            margin: 0 auto;
+        }
+        ul{
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>학생리스트</h2>
+    <table>
+        <tr>
+            <th>학번</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>학년</th>
+            <th>성별</th>
+            <th>취미</th>
+        </tr>
+        {% for s in list %}
+        <tr>
+            <td>{{s.sno}}</td>
+            <td><a href='{% url "student:view" s.sno %}'>{{s.name}}</a></td>
+            <td>{{s.age}}</td>
+            <td>{{s.grade}}</td>
+            <td>{{s.gender}}</td>
+            <td>{{s.hobby}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <ul>
+        <li><a href='/'>메인화면으로</a></li>
+        <li><a href='/student/write'>학생등록</a></li>
+    </ul>
+</body>
+</html>
