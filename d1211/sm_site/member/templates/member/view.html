@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        table{
+            margin: 30px auto;
+            text-align: center;
+        }
+        th{
+            width: 200px;
+        }
+        td{
+            width: 300px;
+        }
+        table,th,td{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        #btn{
+            width:400px;
+            height:50px;
+            margin:0 auto;
+            border:none;
+            display: flex;
+        }
+        .d01{
+            width:120px;
+            height:50px;
+            text-align:center;
+            border:1px solid black;
+            margin:0 auto;
+            line-height:50px;
+            background:#eee;
+        }
+        a{
+            text-decoration:none;
+            inherit:none;
+            cursor:pointer;
+        }
+    </style>
+    <script>
+        function deleteBtn(){
+            if(confirm("정말삭제하시겠습니까?")){
+                location.href = "{% url 'member:delete' m.id %}"
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>회원 상세보기</h2>
+    <table>
+        <tr>
+            <th>아이디</th>
+            <td>{{m.id}}</td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td>{{m.name}}</td>
+        </tr>
+        <tr>
+            <th>나이</th>
+            <td>{{m.age}}</td>
+        </tr>
+        <tr>
+            <th>학년</th>
+            <td>{{m.grade}}</td>
+        </tr>
+        <tr>
+            <th>성별</th>
+            <td>{{m.gender}}</td>
+        </tr>
+        <tr>
+            <th>취미</th>
+            <td>{{m.hobby}}</td>
+        </tr>
+    </table>
+    <div id="btn">
+        <div class='d01'><a href='{% url "member:update" m.id %}'>수정</a></div>
+        <div class='d01' onclick="deleteBtn()"><a>삭제</a></div>
+        <div class='d01'><a href='{% url "member:list" %}'>리스트</a></div>
+    </div>
+</body>
+</html>
