@@ -13,16 +13,41 @@ def list(request):
 # 로그인
 def login(request):
     if request.method == 'GET':
-        return render(request, 'member/login.html')
+        # 쿠키 읽기
+        cook_id = request.COOKIES.get("cook_id","")
+        context = {"cook_id":cook_id}
+        return render(request, 'member/login.html',context)
     elif request.method == 'POST':
         id = request.POST.get("id")
         pw = request.POST.get("pw")
+        cook_keep = request.POST.get("cook_keep","")
         qs = Member.objects.filter(id=id, pw=pw)
+        # qs = Member.objects.get(id=id, pw=pw).DoesNotExist()    # get은 이렇게해야 에러안남
         if qs:
-            return redirect('/')
+            # request.session.session_id  # 세션불러오기
+            # 세션 저장
+            request.session['session_id'] = id
+            
+            # return redirect('/')
+            context = {"error":"1", "msg":"로그인 성공"}
+            response = render(request, 'member/login.html', context)
+            # 쿠키저장, 삭제
+            if cook_keep:
+                response.set_cookie("cook_id", id, max_age=60*60*24*30)
+            else:
+                response.delete_cookie("cook_id")   # 쿠키 삭제
+            
+            return response
         else:
             context = {"error":"0", "msg":"아이디 또는 패스워드가 일치하지 않습니다."}
             return render(request, 'member/login.html', context)
+
+def logout(request):
+    # 세션 삭제
+    request.session.clear() # 세션 모두 삭제
+    # del request.session['session_id']
+    context = {"error":"-1", "msg":"로그아웃"}
+    return redirect('/member/login/')
 
 def view(request, id):
     qs = Member.objects.get(id=id)

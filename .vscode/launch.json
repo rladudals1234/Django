@@ -14,8 +14,8 @@
             "django": true,
             "autoStartBrowser": false,
             //"program": "${workspaceFolder}\\manage.py"
-            //"program": "${workspaceFolder}\\d1211\\stuproject2\\manage.py"
-            "program": "${workspaceFolder}\\d1211\\sm_site2\\manage.py"
+            "program": "${workspaceFolder}\\d1212\\sampleproject02\\manage.py"
+            //"program": "${workspaceFolder}\\d1211\\sm_site\\manage.py"
         }
     ]
 }

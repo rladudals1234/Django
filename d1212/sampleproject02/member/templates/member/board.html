@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLAST Shop - 게시판</title>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="/static/css/board.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="top-menu">
+      <a href="#">회원가입</a> |
+      <a href="/member/login">로그인</a> |
+      <a href="#">주문조회</a> |
+      <a href="#">최근본상품</a>
+    </div>
+    <div class="icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+
+  <!-- Board List -->
+  <div class="board-container">
+    <div class="board-title">회원리스트</div>
+    <table class="board-table">
+      <thead>
+        <tr>
+          <th>아이디</th>
+          <th>이름</th>
+          <th>전화번호</th>
+          <th>성별</th>
+          <th>취미</th>
+          <th>수정일</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in list %}
+        <tr>
+          <td>{{m.id}}</td>
+          <td class="title"><a href="#">{{m.name}}</a></td>
+          <td>{{m.phone}}</td>
+          <td class="views">{{m.gender}}</td>
+          <td>{{m.hobby}}</td>
+          <td class="date">{{m.mdate}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!-- Pagination & Search -->
+    <div class="board-footer" >
+        <div class="pagination">
+            <!-- 이전 페이지 링크 -->
+            {% if list.has_previous %}
+                <a href="{% url 'member:list' %}?page={{ list.previous_page_number }}">&laquo;</a>
+            {% else %}
+                <a href="#" class="disabled">&laquo;</a>
+            {% endif %}
+    
+            <!-- 페이지 번호 루프 -->
+            {% for i in list.paginator.page_range %}
+                {% if list.number == i %}
+                    <a href="#" class="active">{{ i }}</a>
+                {% else %}
+                    <a href="{% url 'member:list' %}?page={{ i }}">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+    
+            <!-- 다음 페이지 링크 -->
+            {% if list.has_next %}
+                <a href="{% url 'member:list' %}?page={{ list.next_page_number }}">&raquo;</a>
+            {% else %}
+                <a href="#" class="disabled">&raquo;</a>
+            {% endif %}
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="검색어 입력">
+            <button>검색</button>
+        </div>
+    </div>
+    
+  </div>
+
+
+  <!-- Footer -->
+  <footer>
+    Copyright © VLAST Shop. All rights reserved.
+  </footer>
+
+</body>
+</html>
