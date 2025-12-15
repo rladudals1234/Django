@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VLAST Shop - 글쓰기</title>
+  <script>
+    if('{{request.session.session_id}}'==''){
+      alert("로그인을 하셔야 글쓰기가 가능합니다.");
+      location.href = '/member/login/';
+    }
+  </script>
+  <link href="/static/css/board_write.css" rel="stylesheet" type="text/css" >
+  <script src="/static/js/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function() {
+      $("#save").click(function(){
+        var url = "{% url 'board:write' %}"
+        $.ajax({
+            type:'POST',
+            url:url,
+            data:$("#writeForm").serialize(),
+            success:function(data){
+                console.log("success",data);
+                if(data.flag=="1"){
+                  alert("게시글이 등록되었습니다.");
+                  location.href = "/board/list/"
+                }else{
+                  alert("저장실패");
+                }
+            },
+            error : function(xhr,errmsg,err) {
+                console.log(errmsg);
+                alert("서버에러: ",errmsg)
+            }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="top-menu">
+      <a href="#">회원가입</a> |
+      <a href="#">로그인</a> |
+      <a href="#">주문조회</a> |
+      <a href="#">최근본상품</a>
+    </div>
+  </div>
+
+  <!-- 글쓰기 폼 -->
+  <div class="write-container">
+    <div class="write-title">게시글 작성</div>
+    <form class="write-form" id="writeForm" action="{% url 'board:write' %}" method="post">
+      {% csrf_token %}
+      <input type="text" id="writer" name="id" placeholder="작성자" maxlength="20" required value="{{request.session.session_id}}" readonly />
+      <input type="text" id="title" name="btitle" placeholder="제목" maxlength="100" required />
+      <textarea id="content" name="bcontent" placeholder="내용을 입력하세요." maxlength="2000" required></textarea>
+
+      <div class="write-buttons">
+        <button type="button" id="save">등록</button>
+        <button type="button" class="cancel" onclick="history.back()">취소</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Copyright © VLAST Shop. All rights reserved.
+  </footer>
+</body>
+</html>
