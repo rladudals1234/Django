@@ -75,3 +75,28 @@ def update(request, bno):
         context['flag']='1'
         # return render(request, 'board/update.html', context)
         return redirect(f'/board/view/{bno}/')
+
+# 게시판 답글달기
+def reply(request, bno):
+    qs = Board.objects.get(bno=bno)
+    context = {'board':qs}
+    if request.method == 'GET':
+        return render(request, 'board/reply.html', context)
+    elif request.method == 'POST':
+        btitle = request.POST.get('btitle')
+        bcontent = request.POST.get('bcontent')
+        bgroup = int(request.POST.get('bgroup'))
+        bstep = int(request.POST.get('bstep'))
+        bindent = int(request.POST.get('bindent'))
+        id = request.session['session_id']
+        member_qs = Member.objects.get(id=id)
+        bfile = request.FILES.get('bfile','')
+        # 1. 답글달기 : 우선 같은 그룹에 있는 게시글의 bstep값을 1씩 먼저 증가
+        board_qs = Board.objects.filter(bgroup=bgroup,bstep__gt = bstep)
+        board_qs.update(bstep = F('bstep') + 1) # F함수 : 검색된 그 컬럼에만 값을 적용
+        # 저장
+        qs = Board.objects.create(btitle=btitle, bcontent=bcontent, bfile=bfile, member=member_qs, bgroup=bgroup, bstep=bstep+1, bindent=bindent+1)
+        qs.save()
+        context['flag']='2'
+        # return render(request, 'board/update.html', context)
+        return redirect(f'/board/reply/{bno}/', context)

@@ -15,7 +15,7 @@
             "autoStartBrowser": false,
             //"program": "${workspaceFolder}\\manage.py"
             //"program": "${workspaceFolder}\\d1212\\sampleproject02\\manage.py"
-            "program": "${workspaceFolder}\\d1216\\sm_pjt02\\manage.py"
+            "program": "${workspaceFolder}\\d1217\\sm_pjt\\manage.py"
         }
     ]
 }
