@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글</title>
+    <style>
+        body{
+            width: 600px;
+            height: 700px;
+            border: 1px solid black;
+        }
+        h2{
+            text-align: center;
+        }
+        table, th, td{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        input[type='text']{
+            height: 20px;
+            width: 100px;
+        }
+        textarea{
+            width: 300px;
+            height: 80px;
+        }
+        table{
+            margin-top: 50px;
+        }
+        th, td{
+            width:600px;
+            height: 40px;
+        }
+        section{
+            width: 100%;
+            height: 60px;
+            border: 1px solid black;
+            background: #eee;
+        }
+    </style>
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>댓글 게시글페이지</h2>
+    <section>{{board.bno}},{{board.btitle}},{{board.bcontent}}</section>
+    <h4>댓글입력창</h4>
+    <form id="frm">
+        <label>아이디 : {{request.session.session_id}}</label>
+        <label>비밀번호</label>
+        <input type='text' id="cpw" name="cpw" placeholder="비밀번호 입력"><br>
+        <label>하단댓글내용</label><br>
+        <textarea id="ccontent" name="ccontent" placeholder="하단댓글 내용을 입력하세요."></textarea><br>
+        <input type="button" id="writeBtn" value="댓글저장"><br>
+    </form>
+    <table>
+        <colgroup>
+            <col width='90%'>
+            <col width='10%'>
+        </colgroup>
+        <tr>
+            <th colspan="2">하단댓글전체개수 : <span id="cnt">{{clist.count}}</span></th>
+        </tr>
+        <tr>
+            <th>하단댓글 리스트</th>
+            <th>비고</th>
+        </tr>
+        <tbody id="tbody">
+            {% for c in clist %}
+            <tr id="{{c.cno}}">
+                <td>{{c.cno}},{{c.member.id}},{{c.board.bno}},{{c.ccontent}},{{c.cdate}}</td>
+                <td><button type="button" class="deleteBtn">삭제</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        $(function(){
+            let c_token = '{{csrf_token}}'
+            // 1. 댓글추가부분 ----------------------------->
+            $(document).on("click","#writeBtn",function(){
+                let id='{{request.session.session_id}}';
+                let bno = '{{board.bno}}';
+                let cpw = $("#cpw").val();
+                let ccontent = $("#ccontent").val();
+                if(ccontent.length<1){
+                    alert("댓글내용을 입력하셔야 합니다.");
+                    $("#ccontent").focus();
+                    return;
+                }
+
+                $.ajax({
+                    url:'/comment/cwrite/',
+                    type:'post',
+                    headers:{'X-CSRFToken':c_token},
+                    dataType:'json',
+                    data:$("#frm").serialize() + "&bno=" + bno,
+                    success:function(data){
+                        if(data.result=="success"){
+                            alert("댓글이 저장되었습니다.");
+                            location.reload();
+                        }else{
+                            alert("실패");
+                        }
+                    },
+                    error:function(xhr,errMsg,err){
+                        alert("서버 실패:",errMsg);
+                    }
+                });
+            });
+            // 1. 댓글추가부분 ----------------------------->
+
+            // 2. 댓글삭제부분 ----------------------------->
+            $(document).on("click",".deleteBtn",function(){
+                if(confirm("댓글을 삭제하시겠습니까?")){
+                    let cno = $(this).closest('tr').attr('id')
+                    $.ajax({
+                        url:'/comment/cdelete/',
+                        type:'post',
+                        headers:{'X-CSRFToken':c_token},
+                        dataType:'json',
+                        data:{"cno":cno},
+                        success:function(data){
+                            if(data.result=="success"){
+                                alert("댓글이 삭제되었습니다.");
+                                //location.reload();
+                                $("#"+cno).remove();
+                                $("#cnt").text(Number($("#cnt").text())-1);
+                            }else{
+                                alert("실패");
+                            }
+                        },
+                        error:function(xhr,errMsg,err){
+                            alert("서버 실패:",errMsg);
+                        }
+                    });
+                }
+            })
+            // 2. 댓글삭제부분 ----------------------------->
+        });
+    </script>
+</body>
+</html>

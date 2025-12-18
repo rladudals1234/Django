@@ -197,8 +197,93 @@
         })
       });
       //댓글 삭제
+      let c_token = '{{csrf_token}}'
+      $(document).on("click",".delete-btn",function(){
+        if(confirm("댓글을 삭제하시겠습니까?")){
+            let cno = $(this).closest('.comment').attr('id');
+            $.ajax({
+                url:'/comment/cdelete/',
+                type:'post',
+                headers:{'X-CSRFToken':c_token},
+                dataType:'json',
+                data:{"cno":cno},
+                success:function(data){
+                    if(data.result=="success"){
+                        alert("댓글이 삭제되었습니다.");
+                        location.reload();
+                        //$("#"+cno).remove();
+                        //$("#cnt").text(Number($("#cnt").text())-1);
+                    }else{
+                        alert("실패");
+                    }
+                },
+                error:function(xhr,errMsg,err){
+                    alert("서버 실패:",errMsg);
+                }
+            });
+          }
+      });
+      //전역변수 선언
+      let txt;
+      let strong;
+      let span;
 
       //댓글 수정
+      $(document).on("click",".edit-btn",function(){
+        let cno = $(this).closest('.comment').attr('id');
+        txt = $(this).closest('.comment').children('p').text();
+        strong = $(this).closest('.comment').children('strong').text();
+        span = $(this).closest('.comment').children('span').text();
+        console.log(txt,strong,span);
+        let datahtml = `
+                  <strong>${strong}</strong> <span>${span}</span>
+                  <p><textarea style="width: 100%; min-height: 60px;">${txt}</textarea></p>
+                  <div class="comment-buttons">
+                    <button class="save-btn">저장</button>
+                    <button class="cancel-btn">취소</button>
+                  </div>
+                `;
+        $("#"+cno).html(datahtml);
+      });
+      //댓글 수정 저장버튼
+      $(document).on('click','.save-btn',function(){
+        let cno = $(this).closest('.comment').attr('id');
+        let ccontent = $(this).closest('.comment').children('p').children('textarea').val();
+        $.ajax({
+          url:'/comment/cupdate/',
+          type:'post',
+          headers:{'X-CSRFToken':c_token},
+          dataType:'json',
+          data:{"cno":cno, "ccontent":ccontent},
+          success:function(data){
+              if(data.result=="success"){
+                  alert("댓글을 수정합니다.");
+                  console.log(data.comment);
+                  location.reload();
+              }else{
+                  alert("실패");
+              }
+          },
+          error:function(xhr,errMsg,err){
+              alert("서버 실패:",errMsg);
+          }
+        });
+      });
+
+      //댓글 수정 취소
+      $(document).on('click','.cancel-btn',function(){
+        let cno = $(this).closest('.comment').attr('id');
+        console.log("댓글수정취소 : ",cno);
+        let datahtml = `
+                  <strong>${strong}</strong> <span>${span}</span>
+                  <p>${txt}</p>
+                  <div class="comment-buttons">
+                    <button class="edit-btn">수정</button>
+                    <button class="delete-btn">삭제</button>
+                  </div>
+                `;
+        $("#"+cno).html(datahtml);
+      });
     });
     const deleteBtn = document.getElementById('deleteBtn');
     const modalOverlay = document.getElementById('modalOverlay');
@@ -275,7 +360,7 @@
 
     // 댓글 수정/삭제 이벤트 위임
     commentsList.addEventListener('click', (e) => {
-      if (e.target.classList.contains('delete-btn')) {
+      /*if (e.target.classList.contains('delete-btn')) {
         // 삭제 버튼 클릭
         if (confirm('이 댓글을 삭제하시겠습니까?')) {
           const commentDiv = e.target.closest('.comment');
@@ -351,7 +436,7 @@
           e.target.style.display = '';
           if (deleteBtn) deleteBtn.style.display = '';
         }
-      }
+      }*/
     });
 
     // XSS 방지용 간단 함수

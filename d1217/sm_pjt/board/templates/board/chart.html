@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}차트그리기{% endblock %}
+{% block extra_head %}
+<head>
+    <style>
+        #test{
+            width:900px;
+            height: 700px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+{% endblock %}
+{% block content %}
+<body>
+    <form id="frm">
+        <select id="next" name="no">
+            <option value="0">1-6</option>
+            <option value="6">7-12</option>
+            <option value="12">13-18</option>
+        </select>
+        <button type="button" id="btn" onclick="cBtn();">데이터 가져오기</button>
+    </form>
+    <h2>그래프</h2>
+    <div id="test">
+        <canvas id="myChart"></canvas>
+    </div>
+<script>
+    function cBtn(){
+        $.ajax({
+            url:'/stuscore/slist/',
+            headers:{'X-CSRFToken':'{{csrf_token}}'},
+            type:'post',
+            dataType:'json',
+            data:$("#frm").serialize(),
+            success:function(data){
+                console.log(data);
+                //데이터 가져오기
+                //let label_data = ['1월매출', '2월매출', '3월매출', '4월매출', '5월매출', '6월매출'];
+                //let datas = [120, 190, 30, 50, 20, 30];
+                //변수 선언
+                let label_data = [];
+                let datas = [];
+                for(let i=0; i<data.list.length;i++){
+                    label_data[i] = data.list[i].member_id;
+                    datas[i] = data.list[i].total;
+                    //label_data.push(data.list[i].member_id);
+                    //datas.push(data.list[i].total);
+                }
+                //차트 초기화
+                let chartStatus = Chart.getChart("myChart"); // <canvas> id
+                if (chartStatus != undefined) {
+                    chartStatus.destroy();
+                }
+
+                //차트그리기
+                const ctx = document.getElementById('myChart');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                    labels: label_data,
+                    datasets: [{
+                        label: '2025년 매출 그래프',
+                        data: datas,
+                        borderWidth: 1,     //선두께
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.7)',
+                            'rgba(54, 162, 235, 0.7)',
+                            'rgba(255, 206, 86, 0.7)',
+                            'rgba(75, 192, 192, 0.7)',
+                            'rgba(153, 102, 255, 0.7)',
+                            'rgba(255, 159, 64, 0.7)'   //그래프색상 마지막은 투명도
+                        ]
+                    }]
+                    },
+                    options: {
+                    scales: {
+                        y: {
+                        beginAtZero: true
+                        }
+                    }
+                    }
+                });
+            },
+            error:function(xhr,errMsg,err){
+                alert(errMsg);
+            }
+        });
+    }
+</script>
+</body>
+{% endblock %}
