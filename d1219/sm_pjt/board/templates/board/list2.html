@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}VLAST Shop - 게시판{% endblock %}
+{% block body-block %}
+<body>
+  <!-- banner -->
+  <div class="banner"></div>
+  <!-- Board List -->
+  <div class="board-container">
+    <div class="board-title">공공데이터api</div>
+    <table class="board-table">
+      <colgroup>
+        <col width='10%'>
+        <col width='15%'>
+        <col width='15%'>
+        <col width='20%'>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작가</th>
+          <th>촬영일</th>
+          <th>이미지</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if list %}
+          {% for g in list %}
+            <tr>
+              <td>{{g.galContentId}}</td>
+              <td class="title">
+                <a href="/board/view/{{g.galContentId}}/">
+                  {{g.galTitle}}
+                </a>
+              </td>
+              <td class="view">{{g.galPhotographer}}</td>
+              <td class="date">{{ g.galModifiedtime|slice:"0:4" }}-{{ g.galModifiedtime|slice:"4:6" }}-{{ g.galModifiedtime|slice:"6:8" }} 
+    {{ g.galModifiedtime|slice:"8:10" }}:{{ g.galModifiedtime|slice:"10:12" }}:{{ g.galModifiedtime|slice:"12:14" }}</td>
+              <td><img src="{{g.galWebImageUrl}}" style="width: 200px;"></td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan='5'>데이터가 없습니다.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <!-- Write Button -->
+    <div class="write-box">
+      <a href="/board/write/" class="write-btn">글쓰기</a>
+    </div>
+    <!-- Pagination & Search -->
+    <div class="board-footer" >
+        <div class="pagination">
+            {% comment %} <!-- 처음 페이지, 이전 페이지 링크 -->
+            {% if list.has_previous %}
+                <a href="/board/list/?page=1">&laquo;</a> <!-- 맨 처음 링크 -->
+                <a href="{% url 'board:list' %}?page={{ list.previous_page_number }}">&lt;</a>
+                {% else %}
+                <a class="disabled">&laquo;</a> <!-- 맨 처음 링크 -->
+                <a class="disabled">&lt;</a>
+            {% endif %}
+            <!-- 페이지 번호 루프 -->
+            {% for p in list.paginator.page_range %}
+              <!-- 현재페이지 기준 앞쪽에 3개랑 뒤쪽에 3페이지까지만 보여주기 -->
+              {% if p >= list.number|add:"-3" and p <= list.number|add:"3" %}
+                  {% if list.number == p %}
+                      <a class="active">{{ p }}</a>
+                  {% else %}
+                      <a href="{% url 'board:list' %}?page={{ p }}">{{ p }}</a>
+                  {% endif %}
+              {% endif %}
+            {% endfor %}
+            <!-- 다음 페이지, 마지막페이지 링크 -->
+            {% if list.has_next %}
+                <a href="{% url 'board:list' %}?page={{ list.next_page_number }}">&gt;</a>
+                <!-- 맨 마지막 링크 -->
+                <a href="{% url 'board:list' %}?page={{ list.paginator.num_pages }}">&raquo;</a>
+            {% else %}
+                <a class="disabled">&gt;</a>
+                <a class="disabled">&raquo;</a>
+            {% endif %} {% endcomment %}
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="검색어 입력">
+            <button>검색</button>
+        </div>
+    </div>
+  </div>
+</body>
+{% endblock %}

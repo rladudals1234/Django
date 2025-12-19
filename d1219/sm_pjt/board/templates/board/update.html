@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}VLAST Shop - 글수정{% endblock %}
+{% block body-block %}
+<script>
+  if('{{flag}}'=='1'){
+    alert("게시글이 수정되었습니다.");
+    location.href = "/board/list/";
+  }
+</script>
+<body>
+
+  <!-- 글쓰기 폼 -->
+  <div class="write-container">
+    <div class="write-title">게시글 수정</div>
+    <form class="write-form" id="writeForm" name="frm" action="{% url 'board:update' board.bno %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% comment %} <input type="hidden" name="bno" value="{{board.bno}}"/> {% endcomment %}
+      <input type="text" id="writer" name="id" placeholder="작성자" required value="{{board.member.name}}" disabled/>
+      <input type="text" id="title" name="btitle" placeholder="제목" maxlength="100" required value="{{board.btitle}}"/>
+      {% comment %} <textarea id="content" name="bcontent" placeholder="내용을 입력하세요." maxlength="2000" required>{{board.bcontent}}</textarea> {% endcomment %}
+      {{ form.media }}
+      {{ form.bcontent }}
+      <input type="hidden" name="pre_bfile" value="{{board.bfile}}"/>
+      <div> 파일첨부 : {{board.bfile}}</div>
+      <input type="file" id="file" name="bfile" placeholder="파일첨부" onchange="readURL(this);"/>
+      <img id="preview" style="width:100px;">
+
+      <div class="write-buttons">
+        <button type="submit">수정</button>
+        <button type="button" class="cancel" onclick="history.back()">취소</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    //이미지 업로드시 이미지 미리보기 함수
+    function readURL(input){
+        //파일첨부가 있으면
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                document.getElementById("preview").src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }else{
+            //없을 경우 빈공백 처리
+            document.getElementById("preview").src = '';
+        }
+    }
+    
+    const writeForm = document.getElementById('writeForm');
+
+    writeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const writer = document.getElementById('writer').value.trim();
+      const title = document.getElementById('title').value.trim();
+      //const content = document.getElementById('content').value.trim();
+
+      if (!writer || !title /*|| !content*/) {
+        alert('모든 항목을 입력해주세요.');
+        return;
+      }
+      // 이 부분에 서버로 데이터 전송 로직을 추가하거나 저장 기능 구현
+      //alert('게시글이 등록되었습니다.');
+
+      // 예시: 목록 페이지로 이동
+      //window.location.href = 'board.html';
+      frm.submit();
+    });
+  </script>
+</body>
+{% endblock %}
