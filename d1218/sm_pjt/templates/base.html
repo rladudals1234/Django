@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,45 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf_token" content="{{csrf_token}}">
     <title>{% block title %}기본 타이틀{% endblock %}</title>
+    <link rel="icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/board_write.css">
     <link rel="stylesheet" href="/static/css/board_list.css">
-    <link href="css/style.css" rel="stylesheet" type="text/css" >
+    {% block css-block %}{% endblock %}
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/chart.js"></script>
     {% block extra_head %}{% endblock %}
 </head>
 <body>
+  {% block top-block %}
   <!-- Header -->
   <div class="header">
     <div class="top-menu">
       <a href="#"><i class="fa-regular fa-chess-queen"></i> 회원가입</a> |
-      <a href="#">로그인</a> |
+      <a href="/member/login">로그인</a> |
       <a href="#">주문조회</a> |
-      <a href="#">최근본상품</a>
+      <a href="/admin/">admin</a>
     </div>
     <div class="icons">
       <i class="fas fa-search"></i>
       <i class="fas fa-user"></i>
-      <i class="fas fa-shopping-bag"></i>
+      <a href="/"><i class="fas fa-shopping-bag"></i></a>
     </div>
   </div>
-  <!-- nav -->
-  <nav>
-    <ul>
-      <li><a href="#">포레스트</a></li>
-      <li><a href="#">스파</a></li>
-      <li><a href="#">객실</a></li>
-      <li><a href="#">특별한 경험</a></li>
-      <li><a href="#">부대시설</a></li>
-      <li><a href="#">브랜드소개</a></li>
-    </ul>
-  </nav>
+  {% endblock %}
+  {% include "nav.html" %}
   <main>
-      {% block content %}
+      {% block body-block %}
       {% endblock %}
   </main>
-  <footer>
-      Copyright © VLAST Shop. All rights reserved.
-  </footer>
+  {% include "footer.html" %}
 </body>
 </html>

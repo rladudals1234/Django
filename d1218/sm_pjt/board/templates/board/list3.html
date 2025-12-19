@@ -1,49 +1,53 @@
 {% extends 'base.html' %}
 {% block title %}VLAST Shop - 게시판{% endblock %}
-{% block css-block %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-{% endblock %}
-{% block extra_head %}
-  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-{% endblock %}
 {% block body-block %}
 <body>
   <!-- banner -->
   <div class="banner"></div>
   <!-- Board List -->
   <div class="board-container">
-    <div class="board-title">공지사항</div>
+    <div class="board-title">공공데이터api</div>
     <table class="board-table">
       <colgroup>
         <col width='10%'>
-        <col width='*'>
-        <col width='15%'>
+        <col width='5%'>
+        <col width='45%'>
+        <col width='10%'>
         <col width='20%'>
-        <col width='15%'>
       </colgroup>
       <thead>
         <tr>
-          <th>번호</th>
-          <th>제목</th>
-          <th>작성자</th>
-          <th>작성일</th>
+          <th>랭크</th>
+          <th></th>
+          <th>영화제목</th>
+          <th>오픈날짜</th>
           <th>조회수</th>
         </tr>
       </thead>
       <tbody>
         {% if list %}
-          {% for b in list  %}
+          {% for m in list %}
             <tr>
-              <td>{{b.bno}}</td>
+              <td>
+                {{m.rank}}
+              </td>
+              <td>
+                {% if m.rankInten|add:"0" > 0 %}
+                  <span style="color: red;">▲ {{ m.rankInten }}</span>
+                {% elif m.rankInten|add:"0" < 0 %}
+                  {% comment %} 절대값씌우기 {% endcomment %}
+                  <span style="color: blue;">▼ {{ m.rankInten|stringformat:"s"|slice:"1:" }}</span>
+                {% else %}
+                  <span style="color: gray;"> -</span>
+                {% endif %}
+              </td>
               <td class="title">
-                <a href="/board/view/{{b.bno}}/">
-                  {% for i in ''|rjust:b.bindent %}<img src='/static/images/icon_reply.292031fe.png' style='width:10px;margin-left:2px;'> {% endfor %}
-                  {{b.btitle}}
+                <a href="/board/view/{{m.movieCd}}/">
+                  {{m.movieNm}}
                 </a>
               </td>
-              <td>{{b.member.name}}</td>
-              <td class="date">{{b.bdate|date:'Y-m-d H:i'}}</td>
-              <td class="views">{{b.bhit}}</td>
+              <td class="date">{{m.openDt}}</td>
+              <td>{{m.showCnt}}</td>
             </tr>
           {% endfor %}
         {% else %}
@@ -60,7 +64,7 @@
     <!-- Pagination & Search -->
     <div class="board-footer" >
         <div class="pagination">
-            <!-- 처음 페이지, 이전 페이지 링크 -->
+            {% comment %} <!-- 처음 페이지, 이전 페이지 링크 -->
             {% if list.has_previous %}
                 <a href="/board/list/?page=1">&laquo;</a> <!-- 맨 처음 링크 -->
                 <a href="{% url 'board:list' %}?page={{ list.previous_page_number }}">&lt;</a>
@@ -87,7 +91,7 @@
             {% else %}
                 <a class="disabled">&gt;</a>
                 <a class="disabled">&raquo;</a>
-            {% endif %}
+            {% endif %} {% endcomment %}
         </div>
         <div class="search-box">
             <input type="text" placeholder="검색어 입력">

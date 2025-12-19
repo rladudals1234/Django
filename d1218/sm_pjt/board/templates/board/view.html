@@ -1,15 +1,12 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VLAST Shop - 게시글 상세보기</title>
+{% block title %}VLAST Shop - 게시글 상세보기{% endblock %}
+{% block extra_head %}
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+{% endblock %}
+{% block css-block %}
   {% comment %} <link rel="stylesheet" href="/static/css/view.css"> {% endcomment %}
   <link rel="stylesheet" href="{% static 'css/view.css' %}">
-  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-  <script src="/static/js/jquery-3.6.0.min.js"></script>
-  <meta name="csrf_token" content="{{csrf_token}}">
   <style>
     /*서머노트 테이블 추가시 선 그리기(설정에서 변경가능하면 설정에서 처리)*/
     .table-bordered th,
@@ -20,24 +17,9 @@
       border-collapse: collapse;
     }
   </style>
-</head>
+{% endblock %}
+{% block body-block %}
 <body>
-
-  <!-- Header -->
-  <div class="header">
-    <div class="top-menu">
-      <a href="#">회원가입</a> |
-      <a href="#">로그인</a> |
-      <a href="#">주문조회</a> |
-      <a href="#">최근본상품</a>
-    </div>
-    <div class="icons">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-user"></i>
-      <i class="fas fa-shopping-bag"></i>
-    </div>
-  </div>
-
   <!-- Detail View -->
   <div class="detail-container">
     <div class="detail-title">{{board.btitle}}</div>
@@ -106,11 +88,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    Copyright © VLAST Shop. All rights reserved.
-  </footer>
 
   <script>
     //전역변수 선언
@@ -460,4 +437,4 @@
     }
   </script>
 </body>
-</html>
+{% endblock %}
