@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %} JARDIN SHOP {% endblock %}</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="JARDIN SHOP" />
+<meta name="keywords" content="JARDIN SHOP" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scaleable=no" />
+<link rel="stylesheet" type="text/css" href="/static/css/reset.css?v=Y" />
+<link rel="stylesheet" type="text/css" href="/static/css/layout.css?v=Y" />
+<link rel="stylesheet" type="text/css" href="/static/css/content.css?v=Y" />
+{% block css-block %}{% endblock %}
+<script type="text/javascript" src="/static/js/top_navi.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/static/js/idangerous.swiper-2.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.anchor.js"></script>
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script src="/static/js/chart.js"></script>
+{% block extra_head %}{% endblock %}
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/static/js/html5.js"></script>
+<script type="text/javascript" src="/static/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	var mySwiper = new Swiper('#mainRoll',{
+		pagination: '#mainThum',
+		paginationClickable: true,
+		slidesPerView: 1,
+		loop: true,
+		autoplay:5000
+	});
+
+	var mySwiper2 = new Swiper('#bestseller',{
+		paginationClickable: true,
+		slidesPerView: 3,
+		loop: true,
+		autoplay:3000
+	});
+
+	var mySwiper3 = new Swiper('#mainSale',{
+		paginationClickable: true,
+		slidesPerView: 5,
+		loop: true,
+		autoplay:3000
+	});
+	
+	$(window).bind('resize', function() {
+		rollwidth();	
+	});
+
+	function rollwidth(){
+		var winWidth = $(window).width();
+		if(winWidth < 768){
+			mySwiper2.params.slidesPerView = 1;
+			mySwiper3.params.slidesPerView = 2;
+		}else{
+			mySwiper2.params.slidesPerView = 3;
+			mySwiper3.params.slidesPerView = 5;
+		}
+	}
+	$('.arrowLeft').bind('click', function(e){
+		e.preventDefault()
+		mySwiper2.swipePrev()
+	});
+	$('.arrowRight').bind('click', function(e){
+		e.preventDefault()
+		mySwiper2.swipeNext()
+	});
+
+	$('.saleLeft').bind('click', function(e){
+		e.preventDefault()
+		mySwiper3.swipePrev()
+	});
+	$('.saleRight').bind('click', function(e){
+		e.preventDefault()
+		mySwiper3.swipeNext()
+	});
+
+	rollwidth();
+
+
+	var myWish = new Swiper('#wishList',{
+		paginationClickable: true,
+		slidesPerView: 3,
+		loop: true,
+		autoplay:3000
+	});
+
+
+});
+</script>
+</head>
+<body>
+
+
+
+<!--익스레이어팝업-->
+<div id="ieUser" style="display:none">
+	<div class="iewrap">	
+		<p class="img"><img src="/static/images/ico/ico_alert.gif" alt="알림" /></p>
+		<p class="txt">IE버전이 낮아 홈페이지 이용에 불편함이 있으므로 <strong>IE9이상이나 다른 브라우저</strong>를 이용해 주세요. </p>
+		<ul>
+			<li><a href="http://windows.microsoft.com/ko-kr/internet-explorer/download-ie" target="_blank"><img src="/static/images/ico/ico_ie.gif" alt="IE 최신브라우저 다운" ></a></li>
+			<li><a href="https://www.google.com/intl/ko/chrome/browser" target="_blank"><img src="/static/images/ico/ico_chrome.gif" alt="IE 최신브라우저 다운" ></a></li>
+			<li><a href="http://www.mozilla.org/ko/firefox/new" target="_blank"><img src="/static/images/ico/ico_mozila.gif" alt="MOZILA 최신브라우저 다운" ></a></li>
+			<li><a href="http://www.apple.com/safari" target="_blank"><img src="/static/images/ico/ico_safari.gif" alt="SAFARI 최신브라우저 다운" ></a></li>
+			<li><a href="http://www.opera.com/ko/o/ie-simple" target="_blank"><img src="/static/images/ico/ico_opera.gif" alt="OPERA 최신브라우저 다운" ></a></li>		
+		</ul>
+		<p class="btn" onclick="msiehide();"><img src="/static/images/ico/ico_close.gif" alt="닫기" /></p>
+	</div>
+</div>
+<!--//익스레이어팝업-->
+<!--IE 6,7,8 사용자에게 브라우저 업데이터 설명 Div 관련 스크립트-->
+ <script type="text/javascript">
+
+     var settimediv = 200000; //지속시간(1000= 1초)
+     var msietimer;
+
+     $(document).ready(function () {
+         msiecheck();
+     });
+
+     var msiecheck = function () {
+         var browser = navigator.userAgent.toLowerCase();
+         if (browser.indexOf('msie 6') != -1 ||
+                browser.indexOf('msie 7') != -1 ||
+				 browser.indexOf('msie 8') != -1) {
+             msieshow();			 
+         }
+         else {
+             msiehide();
+         }
+     }
+
+     var msieshow = function () {
+        $("#ieUser").show();
+        msietimer = setTimeout("msiehide()", settimediv);
+     }
+
+     var msiehide = function () {
+		$("#ieUser").hide();
+        clearTimeout(msietimer);
+     }
+</script>
+<body>
+<div id="allwrap">
+<div id="wrap">
+	<div id="header">
+		<div id="snbBox">
+			<h1><img src="/static/images/txt/logo.gif" alt="JARDIN SHOP" /></h1>
+			<div id="quickmenu">
+				<div id="mnaviOpen"><img src="/static/images/btn/btn_mnavi.gif" width="33" height="31" alt="메뉴열기" /></div>
+				<div id="mnaviClose"><img src="/static/images/btn/btn_mnavi_close.gif" width="44" height="43" alt="메뉴닫기" /></div>
+				<ul>
+					<li><a href="#">EVENT</a></li>
+					<li><a href="#">CUSTOMER</a></li>
+					<li><a href="/chart/">chart</a></li>
+				</ul>
+			</div>
+			<div id="snb">
+				<ul>
+					<li><a href="#">LOGIN</a></li>
+					<li><a href="/member/step03">JOIN</a></li>
+					<li><a href="#">MY PAGE</a></li>
+					<li><a href="/admin/">admin</a></li>
+				</ul>
+
+				<div id="search">
+					<input type="text" class="searchType" />
+					<input type="image" src="/static/images/btn/btn_main_search.gif" width="23" height="20" alt="검색하기" />
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include "nav.html" %}
+
+	<!-- mainSection -->
+	<div id="mainSection">
+		<!-- main rolling -->
+		<div id="mainRoll">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<a href="#"><img src="/static/images/img/main_visible01.jpg" alt="" /></a>
+				</div>
+				<div class="swiper-slide">
+					<a href="#"><img src="/static/images/img/main_visible01.jpg" alt="" /></a>
+				</div>
+				<div class="swiper-slide">
+					<a href="#"><img src="/static/images/img/main_visible01.jpg" alt="" /></a>
+				</div>
+				<div class="swiper-slide">
+					<a href="#"><img src="/static/images/img/main_visible01.jpg" alt="" /></a>
+				</div>
+			</div>
+			<div id="mainThum"></div>
+		</div>
+		<!-- //main rolling -->
+
+		
+		<!-- main contents -->
+		<div id="mainContents">
+    {% block body-block %}
+    {% endblock %}
+		</div>
+		<!-- //main contents -->
+	</div>
+	<!-- //mainSection -->
+{% include "footer.html" %}
+</div>
+</div>
+</body>
+</html>

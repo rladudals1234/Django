@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block title %}VLAST Shop - 글쓰기{% endblock %}
+{% block extra_head %}
+  <script type="text/javascript" src="/static/smarteditor2-2.8.2.3/js/HuskyEZCreator.js" charset="UTF-8"></script>
+{% endblock %}
+{% block body-block %}
+<script>
+  if('{{flag}}'=='1'){
+    alert("게시글을 저장합니다.");
+    location.href = "/board/list/";
+  }
+</script>
+<body>
+  <!-- 글쓰기 폼 -->
+  <div class="write-container">
+    <div class="write-title">게시글 작성</div>
+    <form class="write-form" id="writeForm" name="frm" action="{% url 'board:write' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" id="writer" name="id" placeholder="작성자" required value="{{request.session.session_name}}" disabled/>
+      <input type="text" id="title" name="btitle" placeholder="제목" maxlength="100" required />
+      {% comment %} <textarea id="content" name="bcontent" placeholder="내용을 입력하세요." maxlength="2000" required></textarea> {% endcomment %}
+      {% comment %} <textarea id="bcontent" name="bcontent"></textarea> {% endcomment %}
+
+      {{ form.media }}
+      {{ form.bcontent }}
+      
+      <input type="file" id="file" name="bfile" placeholder="파일첨부" onchange="readURL(this);"/>
+      <img id="preview" style="width:100px;">
+
+      <div class="write-buttons">
+        <button type="submit">등록</button>
+        <button type="button" class="cancel" onclick="history.back()">취소</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    {% comment %} var oEditors = [];
+    function smartEditor(){
+      nhn.husky.EZCreator.createInIFrame({
+        oAppRef: oEditors,
+        elPlaceHolder: "bcontent",
+        sSkinURI: "/static/smarteditor2-2.8.2.3/SmartEditor2Skin.html",
+        fCreator: "createSEditor2"
+      });
+    }
+    $(document).ready(function(){
+      smartEditor();
+    }) {% endcomment %}
+
+    //이미지 업로드시 이미지 미리보기 함수
+    function readURL(input){
+        //파일첨부가 있으면
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                document.getElementById("preview").src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }else{
+            //없을 경우 빈공백 처리
+            document.getElementById("preview").src = '';
+        }
+    }
+    
+    const writeForm = document.getElementById('writeForm');
+
+    writeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      //oEditors.getById["bcontent"].exec("UPDATE_CONTENTS_FIELD", []); //값 적용
+
+      const writer = document.getElementById('writer').value.trim();
+      const title = document.getElementById('title').value.trim();
+      //const content = document.getElementById('content').value.trim();
+
+      /*if (!writer || !title || !content) {
+        alert('모든 항목을 입력해주세요.');
+        return;
+      }*/
+      // 이 부분에 서버로 데이터 전송 로직을 추가하거나 저장 기능 구현
+      //alert('게시글이 등록되었습니다.');
+
+      // 예시: 목록 페이지로 이동
+      //window.location.href = 'board.html';
+      frm.submit();
+    });
+  </script>
+</body>
+{% endblock %}

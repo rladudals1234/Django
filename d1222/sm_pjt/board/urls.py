@@ -1,0 +1,17 @@
+from django.urls import path, include
+from . import views
+
+app_name = 'board'
+urlpatterns = [
+    path('list/', views.list, name='list'),
+    path('list2/', views.list2, name='list2'),
+    path('list3/', views.list3, name='list3'),
+    path('view/<int:bno>/', views.view, name='view'),
+    path('view2/<int:bno>/', views.view2, name='view2'),
+    path('write/', views.write, name='write'),
+    path('delete/<int:bno>/', views.delete, name='delete'),
+    path('update/<int:bno>/', views.update, name='update'),
+    path('reply/<int:bno>/', views.reply, name='reply'),
+    path('chart/', views.chart, name='chart'),
+    path('photoUpload/', views.photoUpload, name='photoUpload'),
+]

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}차트그리기{% endblock %}
+{% block extra_head %}
+{% endblock %}
+{% block css-block %}
+{% endblock %}
+{% block body-block %}
+<body>
+    <div>
+        <h2>차트그리기</h2>
+        <form id="frm" name="frm">
+            <input type="text" name="m_data" id="m_data">
+            <button type="button" onclick="chartBtn();">가져오기</button>
+        </form>
+    </div>
+    <h2>그래프</h2>
+    <div id="test">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        function chartBtn(){
+            //요청번호
+            let input_data = $("#m_data").val();
+            //데이터 초기화
+            let d_data = [];
+            let label_data = [];
+            $.ajax({
+                url:'/chart_json2/',
+                type:'get',
+                headers:{'X-CSRFToken':'{{csrf_token}}'},
+                dataType:'json',
+                data:{'input_data':input_data},
+                success:function(data){
+                    console.log(data);
+                    //d_data = data.list;
+                    //label_data = data.ll_data;
+                    //데이터 추가
+                    for(let i=0; i<data.list.length;i++){
+                        label_data[i] = data.list[i].cyear;
+                        d_data[i] = data.list[i].cdata;
+                    }
+                    //차트 초기화
+                    let chartStatus = Chart.getChart("myChart");
+                    if (chartStatus != undefined) {
+                        chartStatus.destroy();
+                    }
+                    const ctx = document.getElementById('myChart');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                        labels: label_data,
+                        datasets: [{
+                            label: '# of Votes',
+                            data: d_data,
+                            borderWidth: 1
+                        }]
+                        },
+                        options: {
+                        scales: {
+                            y: {
+                            beginAtZero: true
+                            }
+                        }
+                        }
+                    });
+                },
+                error(xhr,errMsg,err){
+                    alert("서버오류:",errMsg);
+                }
+            });
+        }
+    </script>
+</body>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}VLAST Shop - 게시판{% endblock %}
+{% block css-block %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+{% block extra_head %}
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+{% endblock %}
+{% block body-block %}
+<body>
+  <!-- banner -->
+  <div class="banner"></div>
+  <!-- Board List -->
+  <div class="board-container">
+    <div class="board-title">공지사항</div>
+    <table class="board-table">
+      <colgroup>
+        <col width='10%'>
+        <col width='*'>
+        <col width='15%'>
+        <col width='20%'>
+        <col width='15%'>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회수</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if list %}
+          {% for b in list  %}
+            <tr>
+              <td>{{b.bno}}</td>
+              <td class="title">
+                {% if not search %}
+                <a href="/board/view/{{b.bno}}/?page={{list.number}}">
+                {% else %}
+                <a href="/board/view/{{b.bno}}/?page={{list.number}}&search={{search|default:''}}">
+                {% endif %}
+                  {% for i in ''|rjust:b.bindent %}<img src='/static/images/icon_reply.292031fe.png' style='width:10px;margin-left:2px;'> {% endfor %}
+                  {{b.btitle}}
+                </a>
+              </td>
+              <td>{{b.member.name}}</td>
+              <td class="date">{{b.bdate|date:'Y-m-d H:i'}}</td>
+              <td class="views">{{b.bhit}}</td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan='5'>데이터가 없습니다.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <!-- Write Button -->
+    <div class="write-box">
+      <a href="/board/write/" class="write-btn">글쓰기</a>
+    </div>
+    <!-- Pagination & Search -->
+    <div class="board-footer" >
+      <form action="/board/list/" name="frm" method="get">
+        <div class="pagination">
+            <!-- 처음 페이지, 이전 페이지 링크 -->
+            {% if list.has_previous %}
+                <a href="/board/list/?page=1&search={{search|default:''}}">&laquo;</a> <!-- 맨 처음 링크 -->
+                <a href="{% url 'board:list' %}?page={{ list.previous_page_number }}&search={{search|default:''}}">&lt;</a>
+                {% else %}
+                <a class="disabled">&laquo;</a> <!-- 맨 처음 링크 -->
+                <a class="disabled">&lt;</a>
+            {% endif %}
+            <!-- 페이지 번호 루프 -->
+            {% for p in list.paginator.page_range %}
+              <!-- 현재페이지 기준 앞쪽에 3개랑 뒤쪽에 3페이지까지만 보여주기 -->
+              {% if p >= list.number|add:"-3" and p <= list.number|add:"3" %}
+                  {% if list.number == p %}
+                      <a class="active">{{ p }}</a>
+                  {% else %}
+                      <a href="{% url 'board:list' %}?page={{ p }}&search={{search|default:''}}">{{ p }}</a>
+                  {% endif %}
+              {% endif %}
+            {% endfor %}
+            <!-- 다음 페이지, 마지막페이지 링크 -->
+            {% if list.has_next %}
+                <a href="{% url 'board:list' %}?page={{ list.next_page_number }}&search={{search|default:''}}">&gt;</a>
+                <!-- 맨 마지막 링크 -->
+                <a href="{% url 'board:list' %}?page={{ list.paginator.num_pages }}&search={{search|default:''}}">&raquo;</a>
+            {% else %}
+                <a class="disabled">&gt;</a>
+                <a class="disabled">&raquo;</a>
+            {% endif %}
+        </div>
+        <div class="search-box">
+            <input type="text" name="search" placeholder="검색어 입력" value="{{search}}">
+            <button type="button" onclick="searchBtn();">검색</button>
+        </div>
+      </form>
+    </div>
+    <script>
+      function searchBtn(){
+        frm.submit();
+      }
+    </script>
+  </div>
+</body>
+{% endblock %}

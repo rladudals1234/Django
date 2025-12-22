@@ -1,0 +1,216 @@
+from django.shortcuts import render,redirect
+from django.urls import reverse
+from django.http import JsonResponse, HttpResponse
+from board.models import Board
+from member.models import Member
+from comment.models import Comment
+from django.db.models import F, Q
+from django.core.paginator import Paginator
+import os
+import uuid
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+import urllib.parse
+from board.forms import PostForm
+import logging
+import requests
+import json
+import pprint
+from board.func_api import *
+
+logger = logging.getLogger('django')
+
+# Create your views here.
+# 게시판 리스트
+def list(request):
+    try:
+        # result = 10 / 0       # 에러 로그파일에 찍히는지 확인
+        search = request.GET.get('search','')
+        qs=[]
+        if search=='':
+            # 게시글 모두 가져오기
+            qs = Board.objects.all().order_by('-bgroup','bstep')
+        else:
+            qs = Board.objects.filter(Q(btitle__contains=search) | Q(bcontent__contains=search)).order_by('-bgroup','bstep')
+        context = {'list':qs}
+        # 하단 넘버링(1페이지에 10개씩)
+        paginator = Paginator(qs, 10)   # 101 -> 11개
+        page = int(request.GET.get('page', 1))   # 없으면 1페이지로
+        list_qs = paginator.get_page(page)  # 1page -> 게시글 10개를 전달
+        context['list'] = list_qs
+        context['page'] = page  # 현재페이지 넘기기
+        context['search'] = search
+        return render(request, 'board/list.html', context)
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+
+# 공공데이터 리스트 - api
+def list2(request):
+    try:
+        public_key = public_api()
+        page_no = 1
+        url = f'https://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1?serviceKey={public_key}&numOfRows=10&pageNo={page_no}&MobileOS=ETC&MobileApp=AppTest&arrange=A&_type=json'
+        res = requests.get(url)
+        logger.warning(res.text)
+        json_data = json.loads(res.text)
+        p_list = json_data['response']['body']['items']['item']
+        context = {'result':'success', 'list':p_list}
+        return render(request, 'board/list2.html', context)
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+
+def list3(request):
+    try:
+        public_key = public_movie_api()
+        page_no = 1
+        url = f'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key={public_key}&targetDt=20251218'
+        res = requests.get(url)
+        logger.warning(res.text)
+        json_data = json.loads(res.text)
+        p_list = json_data['boxOfficeResult']['dailyBoxOfficeList']
+        context = {'result':'success', 'list':p_list}
+        return render(request, 'board/list3.html', context)
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+
+# 게시판 상세보기
+def view(request, bno):
+    try:
+        # 게시글 가져오기
+        qs = Board.objects.filter(bno=bno)
+        # 하단 댓글 - 해당 하단 댓글도 같이 가져올 수 있음 comment에 views에 clist의 ajax대신
+        # c_qs = Comment.objects.filter(board=qs[0])  # ajax로 만들어 둔 것 대신 넘겨줄 수 있음
+        # 조회를 한 후 조회된 데이터들을 update, delete : F
+        # 조회수 1증가
+        qs.update(bhit = F('bhit') + 1)
+        context = {'board':qs[0]}
+        context['page'] = request.GET.get('page','1')
+        context['search'] = request.GET.get('search','')    # 목록에서 검색된 검색어로 다시 목록으로 이동할때 검색된 상태 유지하고 싶을 때
+        return render(request, 'board/view.html', context)
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+
+def view2(request, bno):
+    try:
+        # 게시글 가져오기
+        qs = Board.objects.filter(bno=bno)
+        # 하단 댓글 - 해당 하단 댓글도 같이 가져올 수 있음 comment에 views에 clist의 ajax대신
+        c_qs = Comment.objects.filter(board=qs[0]).order_by('-cno')  # ajax로 만들어 둔 것 대신 넘겨줄 수 있음
+        qs.update(bhit = F('bhit') + 1)
+        context = {'board':qs[0], 'clist':c_qs}
+        return render(request, 'board/view2.html', context)
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+
+# 게시판 글쓰기
+def write(request):
+    try:
+        if request.method == 'GET':
+            form = PostForm()
+            context = {'form':form}
+            return render(request, 'board/write.html', context)
+        elif request.method == 'POST':
+            context = {'flag':'1'}
+            btitle = request.POST.get('btitle')
+            bcontent = request.POST.get('bcontent')
+            bfile = request.FILES.get('bfile','')
+            id = request.session['session_id']
+            member_qs = Member.objects.get(id=id)
+            # bgroup값을 입력
+            qs = Board.objects.create(btitle=btitle, bcontent=bcontent, bfile=bfile, member=member_qs)
+            qs.bgroup = qs.bno
+            qs.save()
+            return render(request, 'board/write.html', context)
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+
+# 게시판 삭제
+def delete(request, bno):
+    try:
+        qs = Board.objects.get(bno=bno)
+        qs.delete()
+        # context = {'flag':'2'}
+        # return render(request, 'board/list.html', context)
+        return redirect(reverse('board:list'))
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+
+# 게시판 수정
+def update(request, bno):
+    try:
+        qs = Board.objects.get(bno=bno)
+        context = {'board':qs}
+        if request.method == 'GET':
+            form = PostForm(instance=qs)
+            context['form'] = form
+            return render(request, 'board/update.html', context)
+        elif request.method == 'POST':
+            btitle = request.POST.get('btitle')
+            bcontent = request.POST.get('bcontent')
+            bfile = request.FILES.get('bfile',qs.bfile)
+            if bfile:
+                qs.bfile = bfile
+            qs.btitle = btitle
+            qs.bcontent = bcontent
+            id = request.session['session_id']
+            qs.member = Member.objects.get(id=id)
+            qs.save()
+            context['flag']='1'
+            # return render(request, 'board/update.html', context)
+            return redirect(f'/board/view/{bno}/')
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+
+# 게시판 답글달기
+def reply(request, bno):
+    try:
+        qs = Board.objects.get(bno=bno)
+        context = {'board':qs}
+        if request.method == 'GET':
+            return render(request, 'board/reply.html', context)
+        elif request.method == 'POST':
+            btitle = request.POST.get('btitle')
+            bcontent = request.POST.get('bcontent')
+            bgroup = int(request.POST.get('bgroup'))
+            bstep = int(request.POST.get('bstep'))
+            bindent = int(request.POST.get('bindent'))
+            id = request.session['session_id']
+            member_qs = Member.objects.get(id=id)
+            bfile = request.FILES.get('bfile','')
+            # 1. 답글달기 : 우선 같은 그룹에 있는 게시글의 bstep값을 1씩 먼저 증가
+            board_qs = Board.objects.filter(bgroup=bgroup,bstep__gt = bstep)
+            board_qs.update(bstep = F('bstep') + 1) # F함수 : 검색된 그 컬럼에만 값을 적용
+            # 저장
+            qs = Board.objects.create(btitle=btitle, bcontent=bcontent, bfile=bfile, member=member_qs, bgroup=bgroup, bstep=bstep+1, bindent=bindent+1)
+            qs.save()
+            context['flag']='2'
+            # return render(request, 'board/update.html', context)
+            return redirect(f'/board/reply/{bno}/', context)
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)
+    
+def chart(request):
+    return render(request, 'board/chart.html')
+
+@csrf_exempt
+def photoUpload(request):
+    try:
+        # HTML5 업로드
+        file_name = request.headers.get('file-name')
+        if not file_name:
+            return HttpResponse("errstr=NoFileName", content_type="text/plain")
+
+        ext = os.path.splitext(file_name)[-1]
+        new_filename = f"{uuid.uuid4()}{ext}"
+
+        upload_path = os.path.join(settings.MEDIA_ROOT, 'upload', new_filename)
+
+        with open(upload_path, 'wb+') as f:
+            f.write(request.body)
+        
+        file_url = request.build_absolute_uri(f"{settings.MEDIA_URL}upload/{new_filename}")
+        
+        response_content = f"sFileName={file_name}&sFileURL={file_url}&bNewline=true"
+        return HttpResponse(response_content, content_type="text/plain; charset=utf-8")
+    except Exception as e:
+        logger.error("에러 : ", exc_info=True)

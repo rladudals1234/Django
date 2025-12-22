@@ -1,0 +1,1414 @@
+[2025-12-22 11:43:46] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 11:48:33] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 11:48:37] ERROR [django.request:249] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'member'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 5, in index
+    return render(request, 'index.html')
+  File "C:\python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\defaulttags.py", line 333, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\python\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'member' is not a registered namespace
+[2025-12-22 11:48:37] ERROR [django.server:249] "GET / HTTP/1.1" 500 164183
+[2025-12-22 11:48:48] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 11:48:48] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2734
+[2025-12-22 11:48:48] INFO [django.server:82] - Broken pipe from ('127.0.0.1', 55446)
+[2025-12-22 11:48:48] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 11:48:52] WARNING [django.request:249] Not Found: /board/list/
+[2025-12-22 11:48:52] WARNING [django.server:249] "GET /board/list/?page=1&search= HTTP/1.1" 404 2642
+[2025-12-22 11:48:54] ERROR [django.request:249] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'member'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 5, in index
+    return render(request, 'index.html')
+  File "C:\python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\defaulttags.py", line 333, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\python\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'member' is not a registered namespace
+[2025-12-22 11:48:54] ERROR [django.server:249] "GET / HTTP/1.1" 500 164183
+[2025-12-22 11:49:13] ERROR [django.request:249] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'member'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 5, in index
+    return render(request, 'index.html')
+  File "C:\python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\defaulttags.py", line 333, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\python\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'member' is not a registered namespace
+[2025-12-22 11:49:13] ERROR [django.server:249] "GET / HTTP/1.1" 500 164183
+[2025-12-22 11:49:13] ERROR [django.request:249] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'member'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 5, in index
+    return render(request, 'index.html')
+  File "C:\python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\defaulttags.py", line 333, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\python\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'member' is not a registered namespace
+[2025-12-22 11:49:13] ERROR [django.server:249] "GET / HTTP/1.1" 500 164039
+[2025-12-22 11:49:37] INFO [django.server:249] "GET / HTTP/1.1" 200 2168
+[2025-12-22 11:49:43] INFO [django.server:249] "GET / HTTP/1.1" 200 2168
+[2025-12-22 11:49:43] INFO [django.server:249] "GET / HTTP/1.1" 200 2168
+[2025-12-22 11:49:43] INFO [django.server:249] "GET / HTTP/1.1" 200 2168
+[2025-12-22 11:49:43] INFO [django.server:249] "GET / HTTP/1.1" 200 2168
+[2025-12-22 11:50:26] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 11:50:28] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 11:50:48] INFO [django.server:249] "GET / HTTP/1.1" 200 20563
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /css/layout.css
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /css/reset.css
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /css/layout.css?v=Y HTTP/1.1" 404 2636
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /css/reset.css?v=Y HTTP/1.1" 404 2633
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /css/content.css
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /js/jquery.min.js
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /js/jquery.min.js HTTP/1.1" 404 2638
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /css/content.css?v=Y HTTP/1.1" 404 2639
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /js/top_navi.js
+[2025-12-22 11:50:49] INFO [django.server:82] - Broken pipe from ('127.0.0.1', 57099)
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /js/main.js
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /js/top_navi.js HTTP/1.1" 404 2632
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /js/common.js
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /js/main.js HTTP/1.1" 404 2620
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /js/jquery.easing.1.3.js
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /js/idangerous.swiper-2.1.min.js
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /js/common.js HTTP/1.1" 404 2626
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /js/jquery.anchor.js
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /js/jquery.easing.1.3.js HTTP/1.1" 404 2659
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /images/ico/ico_alert.gif
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /js/jquery.anchor.js HTTP/1.1" 404 2647
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /images/ico/ico_ie.gif
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /images/ico/ico_alert.gif HTTP/1.1" 404 2662
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /js/idangerous.swiper-2.1.min.js HTTP/1.1" 404 2683
+[2025-12-22 11:50:49] WARNING [django.server:249] "GET /images/ico/ico_ie.gif HTTP/1.1" 404 2653
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /images/ico/ico_safari.gif
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /images/ico/ico_close.gif
+[2025-12-22 11:50:49] WARNING [django.request:249] Not Found: /images/txt/logo.gif
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/ico/ico_opera.gif
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/ico/ico_chrome.gif
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/ico/ico_mozila.gif
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/ico/ico_close.gif HTTP/1.1" 404 2662
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/txt/logo.gif HTTP/1.1" 404 2647
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/ico/ico_safari.gif HTTP/1.1" 404 2665
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/ico/ico_chrome.gif HTTP/1.1" 404 2665
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/ico/ico_mozila.gif HTTP/1.1" 404 2665
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/ico/ico_opera.gif HTTP/1.1" 404 2662
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/btn/btn_mnavi.gif
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/btn/btn_mnavi_close.gif
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/btn/btn_main_search.gif
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/img_fresh_roast_bean.jpg
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/sample_best_seller.jpg
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/btn/btn_mnavi.gif HTTP/1.1" 404 2662
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/btn/btn_mnavi_close.gif HTTP/1.1" 404 2680
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/btn/btn_main_search.gif HTTP/1.1" 404 2680
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/main_visible01.jpg
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/img_fresh_roast_bean.jpg HTTP/1.1" 404 2695
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/sample_best_seller.jpg HTTP/1.1" 404 2689
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/img_newcoffee.png
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/img_review.jpg
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/img_coffee_fiel.jpg
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/main_visible01.jpg HTTP/1.1" 404 2677
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/img_newcoffee.png HTTP/1.1" 404 2674
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/img_md_choice02.jpg
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/img_md_choice01.jpg
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/img_review.jpg HTTP/1.1" 404 2665
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/img_coffee_fiel.jpg HTTP/1.1" 404 2680
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/img_md_choice02.jpg HTTP/1.1" 404 2680
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/sample_sale.jpg
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/img_md_choice01.jpg HTTP/1.1" 404 2680
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/sample_notice.jpg
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/main_brand_banner.jpg
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/sample_main_brand.png
+[2025-12-22 11:50:50] WARNING [django.server:249] "GET /images/img/sample_sale.jpg HTTP/1.1" 404 2668
+[2025-12-22 11:50:50] WARNING [django.request:249] Not Found: /images/img/sample_enjoy.jpg
+[2025-12-22 11:50:51] WARNING [django.request:249] Not Found: /images/img/sample_wish.gif
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/img/sample_notice.jpg HTTP/1.1" 404 2674
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/img/main_brand_banner.jpg HTTP/1.1" 404 2686
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/img/sample_main_brand.png HTTP/1.1" 404 2686
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/img/sample_enjoy.jpg HTTP/1.1" 404 2671
+[2025-12-22 11:50:51] WARNING [django.request:249] Not Found: /images/btn/wish_left.gif
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/img/sample_wish.gif HTTP/1.1" 404 2668
+[2025-12-22 11:50:51] WARNING [django.request:249] Not Found: /images/btn/wish_right.gif
+[2025-12-22 11:50:51] WARNING [django.request:249] Not Found: /images/ico/ico_top.gif
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/btn/wish_left.gif HTTP/1.1" 404 2662
+[2025-12-22 11:50:51] WARNING [django.request:249] Not Found: /images/txt/flogo.gif
+[2025-12-22 11:50:51] WARNING [django.request:249] Not Found: /images/ico/ico_inicis.png
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/btn/wish_right.gif HTTP/1.1" 404 2665
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/ico/ico_top.gif HTTP/1.1" 404 2656
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/txt/flogo.gif HTTP/1.1" 404 2650
+[2025-12-22 11:50:51] WARNING [django.server:249] "GET /images/ico/ico_inicis.png HTTP/1.1" 404 2665
+[2025-12-22 11:51:02] INFO [django.server:249] "GET / HTTP/1.1" 200 20839
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/css/layout.css?v=Y HTTP/1.1" 200 26531
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/js/common.js HTTP/1.1" 200 4878
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/css/content.css?v=Y HTTP/1.1" 200 70988
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/js/jquery.easing.1.3.js HTTP/1.1" 200 8301
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/js/top_navi.js HTTP/1.1" 200 2315
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/js/main.js HTTP/1.1" 200 767
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/css/reset.css?v=Y HTTP/1.1" 200 2104
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/js/jquery.anchor.js HTTP/1.1" 200 975
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_ie.gif HTTP/1.1" 200 1175
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_alert.gif HTTP/1.1" 200 518
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_chrome.gif HTTP/1.1" 200 1207
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_mozila.gif HTTP/1.1" 200 1251
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_safari.gif HTTP/1.1" 200 1322
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/js/idangerous.swiper-2.1.min.js HTTP/1.1" 200 62754
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/js/jquery.min.js HTTP/1.1" 200 91359
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_opera.gif HTTP/1.1" 200 1106
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_close.gif HTTP/1.1" 200 467
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/txt/logo.gif HTTP/1.1" 200 3121
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/btn_mnavi.gif HTTP/1.1" 200 547
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/btn_mnavi_close.gif HTTP/1.1" 200 303
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/btn_main_search.gif HTTP/1.1" 200 531
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/main_visible01.jpg HTTP/1.1" 200 884317
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/sample_best_seller.jpg HTTP/1.1" 200 3511854
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/img_review.jpg HTTP/1.1" 200 3499789
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/img_fresh_roast_bean.jpg HTTP/1.1" 200 3646152
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/img_newcoffee.png HTTP/1.1" 200 67728
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_navi_l.gif HTTP/1.1" 200 67
+[2025-12-22 11:51:03] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/img_md_choice01.jpg HTTP/1.1" 200 3490725
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/img_coffee_fiel.jpg HTTP/1.1" 200 3543385
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/img_md_choice02.jpg HTTP/1.1" 200 3490652
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_navi_line2.png HTTP/1.1" 200 2837
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_navi_line.png HTTP/1.1" 200 2824
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_navi_r.gif HTTP/1.1" 200 67
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_navi_brand_r.gif HTTP/1.1" 200 67
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_navi_brand.gif HTTP/1.1" 200 100
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/wish_left.gif HTTP/1.1" 200 64
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_main_title.gif HTTP/1.1" 200 52
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_mainroll.gif HTTP/1.1" 200 301
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/btn_roll_left.png HTTP/1.1" 200 2974
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/btn_roll_right.png HTTP/1.1" 200 2970
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/wish_right.gif HTTP/1.1" 200 64
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/sample_wish.gif HTTP/1.1" 200 132
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/mainroll_off.png HTTP/1.1" 200 2943
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/btn/mainroll_on.png HTTP/1.1" 200 2988
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/sample_main_brand.png HTTP/1.1" 200 46727
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_top.gif HTTP/1.1" 200 58
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/txt/flogo.gif HTTP/1.1" 200 2346
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/sample_sale.jpg HTTP/1.1" 200 3497597
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/main_brand_banner.jpg HTTP/1.1" 200 3569140
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/sample_notice.jpg HTTP/1.1" 200 3512164
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/img/sample_enjoy.jpg HTTP/1.1" 200 3522705
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/ico/ico_inicis.png HTTP/1.1" 200 11640
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/sale_bg_arrow.png HTTP/1.1" 200 3309
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_main_brand.gif HTTP/1.1" 200 122
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_address.gif HTTP/1.1" 200 65
+[2025-12-22 11:51:03] INFO [django.server:249] "GET /static/images/bg/bg_customer.jpg HTTP/1.1" 200 3487303
+[2025-12-22 11:51:07] INFO [django.server:249] "GET /static/images/bg/bg_navi_upline.png HTTP/1.1" 200 2797
+[2025-12-22 11:54:31] INFO [django.server:249] "GET / HTTP/1.1" 200 20910
+[2025-12-22 11:55:25] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 11:55:27] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 11:55:32] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 11:55:33] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 11:55:42] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 11:55:44] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 11:58:17] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 11:58:18] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 11:58:29] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\urls.py changed, reloading.
+[2025-12-22 11:58:31] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:03:15] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:03:30] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:03:32] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:03:37] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6307
+[2025-12-22 12:04:12] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 9008
+[2025-12-22 12:04:13] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 9008
+[2025-12-22 12:04:14] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 9008
+[2025-12-22 12:06:19] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6972
+[2025-12-22 12:06:20] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6972
+[2025-12-22 12:06:20] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6972
+[2025-12-22 12:06:20] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6972
+[2025-12-22 12:06:21] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6972
+[2025-12-22 12:06:21] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6972
+[2025-12-22 12:06:40] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6987
+[2025-12-22 12:06:44] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6990
+[2025-12-22 12:07:23] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 6998
+[2025-12-22 12:09:38] INFO [django.server:249] "GET / HTTP/1.1" 200 20910
+[2025-12-22 12:09:38] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:09:39] INFO [django.server:249] "GET / HTTP/1.1" 200 20910
+[2025-12-22 12:09:39] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:09:40] INFO [django.server:249] "GET /static/images/bg/bg_navi_upline2.png HTTP/1.1" 200 2816
+[2025-12-22 12:09:40] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:10:43] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 23429
+[2025-12-22 12:10:43] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:10:43] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:11:46] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 23429
+[2025-12-22 12:11:50] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:12:52] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 11054
+[2025-12-22 12:13:14] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 11018
+[2025-12-22 12:13:18] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 11001
+[2025-12-22 12:19:08] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 11768
+[2025-12-22 12:19:10] WARNING [django.request:249] Not Found: /chart_json/
+[2025-12-22 12:19:10] WARNING [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 404 2889
+[2025-12-22 12:22:29] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 11768
+[2025-12-22 12:22:30] INFO [django.server:249] "GET / HTTP/1.1" 200 20509
+[2025-12-22 12:22:38] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 11768
+[2025-12-22 12:22:39] WARNING [django.request:249] Not Found: /chart_json/
+[2025-12-22 12:22:39] WARNING [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 404 2889
+[2025-12-22 12:32:49] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 11748
+[2025-12-22 12:32:54] INFO [django.server:249] "GET / HTTP/1.1" 200 20489
+[2025-12-22 12:33:32] INFO [django.server:249] "GET / HTTP/1.1" 200 21138
+[2025-12-22 12:33:35] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 12397
+[2025-12-22 12:34:26] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:34:28] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:34:30] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:34:32] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:34:34] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:34:35] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:34:42] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:34:44] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:34:51] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:34:53] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:34:53] WARNING [django.request:249] Not Found: /chart_json/
+[2025-12-22 12:34:53] WARNING [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 404 2889
+[2025-12-22 12:35:05] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\urls.py changed, reloading.
+[2025-12-22 12:35:07] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:35:28] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:35:30] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:35:34] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:35:35] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:35:47] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:35:49] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:35:51] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:35:53] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:35:54] INFO [django.server:249] "GET /chart1 HTTP/1.1" 200 12398
+[2025-12-22 12:35:54] WARNING [django.request:249] Not Found: /chart_json/
+[2025-12-22 12:35:54] WARNING [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 404 3151
+[2025-12-22 12:36:00] WARNING [django.request:249] Not Found: /chart_json/
+[2025-12-22 12:36:00] WARNING [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 404 3151
+[2025-12-22 12:36:06] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:36:07] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:36:18] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\urls.py changed, reloading.
+[2025-12-22 12:36:20] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:36:35] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\urls.py changed, reloading.
+[2025-12-22 12:36:36] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:36:37] INFO [django.server:249] "GET /chart1 HTTP/1.1" 301 0
+[2025-12-22 12:36:37] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12398
+[2025-12-22 12:36:38] ERROR [django.request:249] Internal Server Error: /chart_json/
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 14, in chart_json
+    return JsonResponse(request)
+  File "C:\python\Lib\site-packages\django\http\response.py", line 754, in __init__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+[2025-12-22 12:36:38] ERROR [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 500 76218
+[2025-12-22 12:37:30] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:37:31] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:38:28] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:38:30] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:38:34] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:38:36] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:38:38] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:38:40] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:38:40] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12398
+[2025-12-22 12:38:41] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 171
+[2025-12-22 12:38:50] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12363
+[2025-12-22 12:38:51] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 171
+[2025-12-22 12:39:19] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12313
+[2025-12-22 12:39:20] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 171
+[2025-12-22 12:40:34] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12421
+[2025-12-22 12:40:35] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 171
+[2025-12-22 12:40:48] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12420
+[2025-12-22 12:40:49] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 171
+[2025-12-22 12:41:32] INFO [django.server:249] "GET / HTTP/1.1" 200 21138
+[2025-12-22 12:41:34] INFO [django.server:249] "GET / HTTP/1.1" 200 21138
+[2025-12-22 12:41:34] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:41:38] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12422
+[2025-12-22 12:41:39] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 171
+[2025-12-22 12:45:44] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 171
+[2025-12-22 12:47:31] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\models.py changed, reloading.
+[2025-12-22 12:47:33] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:48:19] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\models.py changed, reloading.
+[2025-12-22 12:48:21] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:49:13] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\models.py changed, reloading.
+[2025-12-22 12:49:15] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:49:18] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\models.py changed, reloading.
+[2025-12-22 12:49:20] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:49:35] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\admin.py changed, reloading.
+[2025-12-22 12:49:36] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:49:40] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\admin.py changed, reloading.
+[2025-12-22 12:49:42] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:50:51] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\models.py changed, reloading.
+[2025-12-22 12:50:53] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:51:20] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:51:22] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:51:33] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:51:35] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:51:37] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12422
+[2025-12-22 12:51:38] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 171
+[2025-12-22 12:52:14] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12429
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /admin/ HTTP/1.1" 302 0
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4116
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /static/admin/css/login.css HTTP/1.1" 200 951
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+[2025-12-22 12:52:16] INFO [django.server:249] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2025-12-22 12:52:20] INFO [django.server:249] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4298
+[2025-12-22 12:52:55] INFO [django.server:249] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-12-22 12:52:55] INFO [django.server:249] "GET /admin/ HTTP/1.1" 200 8350
+[2025-12-22 12:52:55] INFO [django.server:249] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2025-12-22 12:52:55] INFO [django.server:249] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+[2025-12-22 12:52:55] INFO [django.server:249] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 9537
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-12-22 12:52:59] INFO [django.server:249] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+[2025-12-22 12:53:02] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 12:53:02] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:53:02] INFO [django.server:249] "GET /static/admin/css/forms.css HTTP/1.1" 200 8844
+[2025-12-22 12:53:02] INFO [django.server:249] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-12-22 12:53:02] INFO [django.server:249] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+[2025-12-22 12:53:02] INFO [django.server:249] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-12-22 12:53:26] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 12:53:26] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 11108
+[2025-12-22 12:53:26] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:53:26] INFO [django.server:249] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 558
+[2025-12-22 12:53:28] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 12:53:28] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:53:35] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 12:53:35] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 11386
+[2025-12-22 12:53:35] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:53:38] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 12:53:38] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:53:48] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 12:53:48] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 11666
+[2025-12-22 12:53:48] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:53:53] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 12:53:53] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:53:59] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 12:53:59] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 11945
+[2025-12-22 12:53:59] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:54:01] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 12:54:01] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:54:10] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 12:54:10] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12221
+[2025-12-22 12:54:10] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:54:11] INFO [django.server:249] "GET /admin/home/chartdata/2/change/ HTTP/1.1" 200 10991
+[2025-12-22 12:54:11] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:54:14] INFO [django.server:249] "POST /admin/home/chartdata/2/change/ HTTP/1.1" 302 0
+[2025-12-22 12:54:14] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12221
+[2025-12-22 12:54:14] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:54:35] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 12:54:35] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:54:39] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 12:54:39] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12501
+[2025-12-22 12:54:39] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:54:41] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12285
+[2025-12-22 12:54:41] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:55:20] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:55:22] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:55:29] INFO [django.server:249] "GET / HTTP/1.1" 200 21145
+[2025-12-22 12:55:29] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:55:33] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12429
+[2025-12-22 12:55:35] ERROR [django.request:249] Internal Server Error: /chart_json/
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 21, in chart_json
+    return JsonResponse(context)
+  File "C:\python\Lib\site-packages\django\http\response.py", line 761, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\python\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\python\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\python\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\python\Lib\site-packages\django\core\serializers\json.py", line 113, in default
+    return super().default(o)
+           ~~~~~~~~~~~~~~~^^^
+  File "C:\python\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type QuerySet is not JSON serializable
+when serializing dict item 'list'
+[2025-12-22 12:55:35] ERROR [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 500 100507
+[2025-12-22 12:55:49] ERROR [django.request:249] Internal Server Error: /chart_json/
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 21, in chart_json
+    return JsonResponse(context)
+  File "C:\python\Lib\site-packages\django\http\response.py", line 761, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\python\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\python\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\python\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\python\Lib\site-packages\django\core\serializers\json.py", line 113, in default
+    return super().default(o)
+           ~~~~~~~~~~~~~~~^^^
+  File "C:\python\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type QuerySet is not JSON serializable
+when serializing dict item 'list'
+[2025-12-22 12:55:49] ERROR [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 500 101008
+[2025-12-22 12:55:57] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:55:59] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:56:08] INFO [django.server:249] "GET / HTTP/1.1" 200 21145
+[2025-12-22 12:56:09] INFO [django.server:249] "GET /admin/ HTTP/1.1" 200 10930
+[2025-12-22 12:56:11] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12285
+[2025-12-22 12:56:11] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 12:57:09] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:57:11] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:57:11] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12429
+[2025-12-22 12:57:11] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 12:57:12] ERROR [django.request:249] Internal Server Error: /chart_json/
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 21, in chart_json
+    return JsonResponse(context)
+  File "C:\python\Lib\site-packages\django\http\response.py", line 761, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\python\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\python\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\python\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\python\Lib\site-packages\django\core\serializers\json.py", line 113, in default
+    return super().default(o)
+           ~~~~~~~~~~~~~~~^^^
+  File "C:\python\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type QuerySet is not JSON serializable
+when serializing dict item 'list'
+[2025-12-22 12:57:12] ERROR [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 500 100507
+[2025-12-22 12:58:12] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:58:14] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:58:28] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 12:58:30] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 12:59:19] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12468
+[2025-12-22 12:59:20] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 12:59:20] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3252
+[2025-12-22 12:59:20] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 12:59:23] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 746
+[2025-12-22 13:00:00] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12465
+[2025-12-22 13:00:00] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 13:00:00] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3252
+[2025-12-22 13:00:00] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 13:00:00] INFO [django.server:82] - Broken pipe from ('127.0.0.1', 60165)
+[2025-12-22 13:00:01] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 746
+[2025-12-22 13:00:02] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 746
+[2025-12-22 13:01:50] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:01:52] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:02:57] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12786
+[2025-12-22 13:02:57] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 13:02:57] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3252
+[2025-12-22 13:02:57] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 13:03:03] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12661
+[2025-12-22 13:03:03] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 13:03:03] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3252
+[2025-12-22 13:03:03] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 13:03:03] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:03:27] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:03:28] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:03:33] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:07] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:07] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:08] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:08] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:48] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12886
+[2025-12-22 13:04:49] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 13:04:49] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3252
+[2025-12-22 13:04:49] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 13:04:50] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:52] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:52] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:53] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:53] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:54] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:54] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:54] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:04:55] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:05:08] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12886
+[2025-12-22 13:05:08] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 13:05:08] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3252
+[2025-12-22 13:05:08] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 13:05:10] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:06:30] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:06:32] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:06:50] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:06:51] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:06:51] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12945
+[2025-12-22 13:06:51] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 13:06:52] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 13:06:52] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3252
+[2025-12-22 13:06:56] ERROR [django.request:249] Internal Server Error: /chart_json/
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\python\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\home\views.py", line 17, in chart_json
+    qs = ChartData.objects.all(cyear=request_data)
+TypeError: BaseManager.all() got an unexpected keyword argument 'cyear'
+[2025-12-22 13:06:56] ERROR [django.server:249] "GET /chart_json/?input_data=2025 HTTP/1.1" 500 72919
+[2025-12-22 13:07:05] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:07:06] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12945
+[2025-12-22 13:07:06] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 13:07:06] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3252
+[2025-12-22 13:07:06] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 13:07:07] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:07:10] INFO [django.server:249] "GET /chart_json/?input_data=2024 HTTP/1.1" 200 183
+[2025-12-22 13:08:50] INFO [django.server:249] "GET /chart_json/?input_data=2024 HTTP/1.1" 200 183
+[2025-12-22 13:08:58] INFO [django.server:249] "GET /chart_json/?input_data=2022 HTTP/1.1" 200 183
+[2025-12-22 13:09:02] INFO [django.server:249] "GET /admin/home/chartdata/1/change/ HTTP/1.1" 200 10991
+[2025-12-22 13:09:02] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:09:37] INFO [django.server:249] "GET /chart_json/?input_data=2022 HTTP/1.1" 200 183
+[2025-12-22 13:09:41] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:09:43] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:09:45] INFO [django.server:249] "GET /chart_json/?input_data=2022 HTTP/1.1" 200 222
+[2025-12-22 13:09:54] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 183
+[2025-12-22 13:09:56] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 183
+[2025-12-22 13:09:56] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 183
+[2025-12-22 13:09:57] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 183
+[2025-12-22 13:09:57] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 183
+[2025-12-22 13:10:20] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:10:22] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:10:22] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12945
+[2025-12-22 13:10:22] INFO [django.server:82] - Broken pipe from ('127.0.0.1', 52395)
+[2025-12-22 13:10:23] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:10:29] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:10:31] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:10:32] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:10:33] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:10:34] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:10:34] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:10:35] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:10:39] INFO [django.server:249] "GET /chart_json/?input_data=2022 HTTP/1.1" 200 222
+[2025-12-22 13:10:44] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:12:50] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:12:52] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:12:53] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12945
+[2025-12-22 13:12:54] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 289
+[2025-12-22 13:12:57] INFO [django.server:249] "GET /chart_json/?input_data=2022 HTTP/1.1" 200 81
+[2025-12-22 13:13:24] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12949
+[2025-12-22 13:13:26] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 289
+[2025-12-22 13:13:29] INFO [django.server:249] "GET /chart_json/?input_data=2023 HTTP/1.1" 200 81
+[2025-12-22 13:13:38] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 13:13:40] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 13:13:56] INFO [django.server:249] "GET /chart_json/?input_data=2023 HTTP/1.1" 200 222
+[2025-12-22 13:14:23] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 430
+[2025-12-22 13:14:36] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12285
+[2025-12-22 13:14:43] INFO [django.server:249] "GET /admin/home/chartdata/1/change/ HTTP/1.1" 200 10991
+[2025-12-22 13:14:43] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:14:44] INFO [django.server:249] "GET /admin/home/chartdata/1/delete/ HTTP/1.1" 200 9243
+[2025-12-22 13:14:44] INFO [django.server:249] "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+[2025-12-22 13:14:46] INFO [django.server:249] "POST /admin/home/chartdata/1/delete/ HTTP/1.1" 302 0
+[2025-12-22 13:14:46] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12191
+[2025-12-22 13:14:46] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:14:47] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 13:14:47] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:14:50] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 13:14:50] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12500
+[2025-12-22 13:14:50] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:14:55] INFO [django.server:249] "GET /admin/home/chartdata/7/change/ HTTP/1.1" 200 10991
+[2025-12-22 13:14:55] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:14:56] INFO [django.server:249] "GET /admin/home/chartdata/7/delete/ HTTP/1.1" 200 9243
+[2025-12-22 13:14:59] INFO [django.server:249] "GET /admin/home/chartdata/7/change/ HTTP/1.1" 200 10991
+[2025-12-22 13:15:00] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12285
+[2025-12-22 13:15:01] INFO [django.server:249] "GET /admin/home/chartdata/5/change/ HTTP/1.1" 200 10991
+[2025-12-22 13:15:01] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:04] INFO [django.server:249] "GET /admin/home/chartdata/5/delete/ HTTP/1.1" 200 9243
+[2025-12-22 13:15:04] INFO [django.server:249] "POST /admin/home/chartdata/5/delete/ HTTP/1.1" 302 0
+[2025-12-22 13:15:05] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12191
+[2025-12-22 13:15:05] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:06] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 13:15:06] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:11] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 13:15:12] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12500
+[2025-12-22 13:15:12] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:14] INFO [django.server:249] "GET /admin/home/chartdata/7/change/ HTTP/1.1" 200 10991
+[2025-12-22 13:15:14] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:16] INFO [django.server:249] "GET /admin/home/chartdata/7/delete/ HTTP/1.1" 200 9243
+[2025-12-22 13:15:17] INFO [django.server:249] "POST /admin/home/chartdata/7/delete/ HTTP/1.1" 302 0
+[2025-12-22 13:15:17] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12191
+[2025-12-22 13:15:17] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:18] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 13:15:18] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:21] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 13:15:21] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12500
+[2025-12-22 13:15:21] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:23] INFO [django.server:249] "GET /admin/home/chartdata/2/change/ HTTP/1.1" 200 10991
+[2025-12-22 13:15:23] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:25] INFO [django.server:249] "GET /admin/home/chartdata/2/delete/ HTTP/1.1" 200 9243
+[2025-12-22 13:15:26] INFO [django.server:249] "POST /admin/home/chartdata/2/delete/ HTTP/1.1" 302 0
+[2025-12-22 13:15:26] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12191
+[2025-12-22 13:15:26] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:28] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 13:15:28] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:33] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 13:15:33] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12506
+[2025-12-22 13:15:34] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:35] INFO [django.server:249] "GET /admin/home/chartdata/3/change/ HTTP/1.1" 200 10995
+[2025-12-22 13:15:35] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:38] INFO [django.server:249] "GET /admin/home/chartdata/3/delete/ HTTP/1.1" 200 9246
+[2025-12-22 13:15:39] INFO [django.server:249] "POST /admin/home/chartdata/3/delete/ HTTP/1.1" 302 0
+[2025-12-22 13:15:39] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12194
+[2025-12-22 13:15:39] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:41] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 13:15:41] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:44] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 13:15:45] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12511
+[2025-12-22 13:15:45] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:46] INFO [django.server:249] "GET /admin/home/chartdata/4/change/ HTTP/1.1" 200 10995
+[2025-12-22 13:15:46] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:48] INFO [django.server:249] "GET /admin/home/chartdata/4/delete/ HTTP/1.1" 200 9246
+[2025-12-22 13:15:49] INFO [django.server:249] "POST /admin/home/chartdata/4/delete/ HTTP/1.1" 302 0
+[2025-12-22 13:15:49] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12198
+[2025-12-22 13:15:49] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:51] INFO [django.server:249] "GET /admin/home/chartdata/add/ HTTP/1.1" 200 10762
+[2025-12-22 13:15:51] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:55] INFO [django.server:249] "POST /admin/home/chartdata/add/ HTTP/1.1" 302 0
+[2025-12-22 13:15:55] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 12515
+[2025-12-22 13:15:55] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 13:15:58] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12949
+[2025-12-22 13:15:59] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 433
+[2025-12-22 13:16:08] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12949
+[2025-12-22 13:16:18] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 433
+[2025-12-22 13:21:41] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 433
+[2025-12-22 13:21:45] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12949
+[2025-12-22 13:21:47] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 433
+[2025-12-22 13:22:16] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 433
+[2025-12-22 13:23:09] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 16:33:44] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 16:34:38] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 16:34:40] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 16:35:05] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\urls.py changed, reloading.
+[2025-12-22 16:35:07] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 16:35:23] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\views.py changed, reloading.
+[2025-12-22 16:35:25] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /chart1/ HTTP/1.1" 200 12949
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/css/reset.css?v=Y HTTP/1.1" 200 2104
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/css/layout.css?v=Y HTTP/1.1" 200 26531
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/css/content.css?v=Y HTTP/1.1" 200 70988
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/js/top_navi.js HTTP/1.1" 200 2315
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/js/main.js HTTP/1.1" 200 767
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/js/common.js HTTP/1.1" 200 4878
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/js/jquery.easing.1.3.js HTTP/1.1" 200 8301
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/js/jquery.anchor.js HTTP/1.1" 200 975
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/js/idangerous.swiper-2.1.min.js HTTP/1.1" 200 62754
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/js/jquery-3.6.0.min.js HTTP/1.1" 200 89501
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/ico/ico_alert.gif HTTP/1.1" 200 518
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/ico/ico_ie.gif HTTP/1.1" 200 1175
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/ico/ico_chrome.gif HTTP/1.1" 200 1207
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/ico/ico_mozila.gif HTTP/1.1" 200 1251
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/ico/ico_safari.gif HTTP/1.1" 200 1322
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/js/chart.js HTTP/1.1" 200 208522
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/ico/ico_opera.gif HTTP/1.1" 200 1106
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/ico/ico_close.gif HTTP/1.1" 200 467
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/txt/logo.gif HTTP/1.1" 200 3121
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/btn/btn_mnavi.gif HTTP/1.1" 200 547
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/btn/btn_mnavi_close.gif HTTP/1.1" 200 303
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/btn/btn_main_search.gif HTTP/1.1" 200 531
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/txt/flogo.gif HTTP/1.1" 200 2346
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/ico/ico_inicis.png HTTP/1.1" 200 11640
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/img/main_visible01.jpg HTTP/1.1" 200 884317
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/bg/bg_navi_brand.gif HTTP/1.1" 200 100
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/bg/bg_navi_line2.png HTTP/1.1" 200 2837
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/bg/bg_navi_brand_r.gif HTTP/1.1" 200 67
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/bg/bg_navi_line.png HTTP/1.1" 200 2824
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/bg/bg_navi_l.gif HTTP/1.1" 200 67
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/bg/bg_navi_r.gif HTTP/1.1" 200 67
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/bg/bg_address.gif HTTP/1.1" 200 65
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/bg/bg_mainroll.gif HTTP/1.1" 200 301
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/btn/mainroll_off.png HTTP/1.1" 200 2943
+[2025-12-22 16:35:46] INFO [django.server:249] "GET /static/images/btn/mainroll_on.png HTTP/1.1" 200 2988
+[2025-12-22 16:35:46] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 16:35:47] INFO [django.server:249] "GET /chart_json/?input_data= HTTP/1.1" 200 433
+[2025-12-22 16:35:48] INFO [django.server:249] "GET /static/images/bg/bg_navi_upline2.png HTTP/1.1" 200 2816
+[2025-12-22 16:35:50] INFO [django.server:249] "GET /chart2 HTTP/1.1" 301 0
+[2025-12-22 16:35:50] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 12950
+[2025-12-22 16:35:50] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 16:35:52] WARNING [django.request:249] Not Found: /chart_json2/
+[2025-12-22 16:35:52] WARNING [django.server:249] "GET /chart_json2/?input_data= HTTP/1.1" 404 3411
+[2025-12-22 16:35:53] INFO [django.server:249] "GET /static/images/bg/bg_navi_upline.png HTTP/1.1" 200 2797
+[2025-12-22 16:35:53] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 16:39:04] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 13023
+[2025-12-22 16:39:05] WARNING [django.request:249] Not Found: /chart_json2/
+[2025-12-22 16:39:05] WARNING [django.server:249] "GET /chart_json2/?input_data= HTTP/1.1" 404 3411
+[2025-12-22 16:39:21] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\home\urls.py changed, reloading.
+[2025-12-22 16:39:23] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 16:39:23] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 13023
+[2025-12-22 16:39:24] INFO [django.server:249] "GET /chart_json2/?input_data= HTTP/1.1" 200 433
+[2025-12-22 16:40:01] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 16:40:01] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3772
+[2025-12-22 16:40:02] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 16:40:19] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 13023
+[2025-12-22 16:40:20] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 16:40:20] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3772
+[2025-12-22 16:40:20] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 16:40:21] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 13023
+[2025-12-22 16:40:21] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 16:40:21] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3772
+[2025-12-22 16:40:21] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 16:40:22] INFO [django.server:249] "GET /chart_json2/?input_data= HTTP/1.1" 200 433
+[2025-12-22 16:42:31] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 16:42:31] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3772
+[2025-12-22 16:42:31] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 16:55:24] INFO [django.server:249] "GET / HTTP/1.1" 200 21145
+[2025-12-22 16:55:25] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/bg/bg_main_title.gif HTTP/1.1" 200 52
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/btn/btn_roll_left.png HTTP/1.1" 200 2974
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/btn/btn_roll_right.png HTTP/1.1" 200 2970
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/sample_best_seller.jpg HTTP/1.1" 200 3511854
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/sample_wish.gif HTTP/1.1" 200 132
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/img_fresh_roast_bean.jpg HTTP/1.1" 200 3646152
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/img_review.jpg HTTP/1.1" 200 3499789
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/btn/wish_left.gif HTTP/1.1" 200 64
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/btn/wish_right.gif HTTP/1.1" 200 64
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/img_coffee_fiel.jpg HTTP/1.1" 200 3543385
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/img_newcoffee.png HTTP/1.1" 200 67728
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/img_md_choice01.jpg HTTP/1.1" 200 3490725
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/img_md_choice02.jpg HTTP/1.1" 200 3490652
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/sample_sale.jpg HTTP/1.1" 200 3497597
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/main_brand_banner.jpg HTTP/1.1" 200 3569140
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/sample_main_brand.png HTTP/1.1" 200 46727
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/sample_notice.jpg HTTP/1.1" 200 3512164
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/img/sample_enjoy.jpg HTTP/1.1" 200 3522705
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/ico/ico_top.gif HTTP/1.1" 200 58
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/bg/sale_bg_arrow.png HTTP/1.1" 200 3309
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/bg/bg_main_brand.gif HTTP/1.1" 200 122
+[2025-12-22 16:55:25] INFO [django.server:249] "GET /static/images/bg/bg_customer.jpg HTTP/1.1" 200 3487303
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /admin/ HTTP/1.1" 302 0
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4116
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /static/admin/css/login.css HTTP/1.1" 200 951
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[2025-12-22 16:55:28] INFO [django.server:249] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2025-12-22 16:55:32] INFO [django.server:249] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-12-22 16:55:32] INFO [django.server:249] "GET /admin/ HTTP/1.1" 200 11760
+[2025-12-22 16:55:32] INFO [django.server:249] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2025-12-22 16:55:32] INFO [django.server:249] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+[2025-12-22 16:55:32] INFO [django.server:249] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 689
+[2025-12-22 16:55:32] INFO [django.server:249] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+[2025-12-22 16:55:34] INFO [django.server:249] "GET /admin/ HTTP/1.1" 200 11760
+[2025-12-22 16:55:48] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\j_pjt\settings.py changed, reloading.
+[2025-12-22 16:55:50] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 16:56:07] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\j_pjt\urls.py changed, reloading.
+[2025-12-22 16:56:09] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 16:58:52] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 16:58:53] INFO [django.server:249] "GET /admin/ HTTP/1.1" 200 12826
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /admin/member/member/ HTTP/1.1" 200 10410
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-12-22 16:58:56] INFO [django.server:249] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+[2025-12-22 16:58:58] INFO [django.server:249] "GET /admin/member/member/add/ HTTP/1.1" 200 14286
+[2025-12-22 16:58:58] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 16:58:58] INFO [django.server:249] "GET /static/admin/css/forms.css HTTP/1.1" 200 8844
+[2025-12-22 16:58:58] INFO [django.server:249] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-12-22 16:58:58] INFO [django.server:249] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+[2025-12-22 16:58:58] INFO [django.server:249] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-12-22 16:59:15] INFO [django.server:249] "POST /admin/member/member/add/ HTTP/1.1" 302 0
+[2025-12-22 16:59:15] INFO [django.server:249] "GET /admin/member/member/ HTTP/1.1" 200 12132
+[2025-12-22 16:59:15] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 16:59:15] INFO [django.server:249] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 558
+[2025-12-22 17:00:22] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:00:24] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:00:38] INFO [django.server:249] "GET /admin/member/member/ HTTP/1.1" 200 11867
+[2025-12-22 17:00:38] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 17:00:45] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 13030
+[2025-12-22 17:00:47] WARNING [django.request:249] Not Found: /step03/
+[2025-12-22 17:00:47] WARNING [django.server:249] "GET /step03/ HTTP/1.1" 404 3799
+[2025-12-22 17:01:08] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 13036
+[2025-12-22 17:01:11] INFO [django.server:249] "GET /member/step03 HTTP/1.1" 301 0
+[2025-12-22 17:01:11] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 21592
+[2025-12-22 17:01:11] WARNING [django.request:249] Not Found: /member/css/content.css
+[2025-12-22 17:01:11] WARNING [django.request:249] Not Found: /member/css/layout.css
+[2025-12-22 17:01:11] WARNING [django.request:249] Not Found: /member/css/reset.css
+[2025-12-22 17:01:11] WARNING [django.server:249] "GET /member/css/layout.css?v=Y HTTP/1.1" 404 3957
+[2025-12-22 17:01:11] WARNING [django.server:249] "GET /member/css/content.css?v=Y HTTP/1.1" 404 3960
+[2025-12-22 17:01:11] WARNING [django.server:249] "GET /member/css/reset.css?v=Y HTTP/1.1" 404 3954
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/top_navi.js
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/jquery.min.js
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/left_navi.js
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/top_navi.js HTTP/1.1" 404 3953
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/jquery.min.js HTTP/1.1" 404 3959
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/left_navi.js HTTP/1.1" 404 3956
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/main.js
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/jquery.anchor.js
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/idangerous.swiper-2.1.min.js
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/jquery.easing.1.3.js
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/common.js
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/main.js HTTP/1.1" 404 3941
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/images/ico/ico_alert.gif
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/jquery.anchor.js HTTP/1.1" 404 3968
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/idangerous.swiper-2.1.min.js HTTP/1.1" 404 4004
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/jquery.easing.1.3.js HTTP/1.1" 404 3980
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/common.js HTTP/1.1" 404 3947
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/images/ico/ico_alert.gif HTTP/1.1" 404 3983
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/images/ico/ico_ie.gif
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/js/jquery.fancybox-1.3.4.pack.js
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/images/ico/ico_safari.gif
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/images/ico/ico_ie.gif HTTP/1.1" 404 3974
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/js/jquery.fancybox-1.3.4.pack.js HTTP/1.1" 404 4007
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/images/ico/ico_chrome.gif
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/images/ico/ico_mozila.gif
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/images/ico/ico_safari.gif HTTP/1.1" 404 3986
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/images/btn/btn_main_search.gif
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/images/btn/btn_mnavi_close.gif
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/images/ico/ico_chrome.gif HTTP/1.1" 404 3986
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/images/ico/ico_mozila.gif HTTP/1.1" 404 3986
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/images/btn/btn_mnavi.gif
+[2025-12-22 17:01:12] WARNING [django.request:249] Not Found: /member/css/jquery.fancybox-1.3.4.css
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/images/btn/btn_main_search.gif HTTP/1.1" 404 4001
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/images/btn/btn_mnavi_close.gif HTTP/1.1" 404 4001
+[2025-12-22 17:01:12] WARNING [django.server:249] "GET /member/images/btn/btn_mnavi.gif HTTP/1.1" 404 3983
+[2025-12-22 17:01:13] WARNING [django.request:249] Not Found: /member/images/ico/ico_opera.gif
+[2025-12-22 17:01:13] WARNING [django.server:249] "GET /member/css/jquery.fancybox-1.3.4.css HTTP/1.1" 404 3998
+[2025-12-22 17:01:13] WARNING [django.request:249] Not Found: /member/images/txt/logo.gif
+[2025-12-22 17:01:13] WARNING [django.request:249] Not Found: /member/images/ico/ico_close.gif
+[2025-12-22 17:01:13] WARNING [django.server:249] "GET /member/images/ico/ico_opera.gif HTTP/1.1" 404 3983
+[2025-12-22 17:01:13] WARNING [django.request:249] Not Found: /member/images/bg/bg_step.png
+[2025-12-22 17:01:13] WARNING [django.request:249] Not Found: /member/images/ico/ico_inicis.png
+[2025-12-22 17:01:13] WARNING [django.request:249] Not Found: /member/images/txt/flogo.gif
+[2025-12-22 17:01:13] WARNING [django.server:249] "GET /member/images/ico/ico_close.gif HTTP/1.1" 404 3983
+[2025-12-22 17:01:13] WARNING [django.server:249] "GET /member/images/txt/logo.gif HTTP/1.1" 404 3968
+[2025-12-22 17:01:13] WARNING [django.server:249] "GET /member/images/bg/bg_step.png HTTP/1.1" 404 3974
+[2025-12-22 17:01:13] WARNING [django.server:249] "GET /member/images/ico/ico_inicis.png HTTP/1.1" 404 3986
+[2025-12-22 17:01:13] WARNING [django.server:249] "GET /member/images/txt/flogo.gif HTTP/1.1" 404 3971
+[2025-12-22 17:03:13] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 13036
+[2025-12-22 17:03:14] ERROR [django.request:249] Internal Server Error: /member/step03/
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\member\views.py", line 6, in step03
+    return render(request, 'step03.html')
+  File "C:\python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\python\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\python\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\python\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\python\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\python\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\python\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 307, in do_extends
+    nodelist = parser.parse()
+  File "C:\python\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 235, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\python\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 229, in do_block
+    raise TemplateSyntaxError(
+        "'%s' tag with name '%s' appears more than once" % (bits[0], block_name)
+    )
+django.template.exceptions.TemplateSyntaxError: Template: C:\workspace\Django\d1222\jardin_pjt\member\templates\step03.html, 'block' tag with name 'body-block' appears more than once
+[2025-12-22 17:03:14] ERROR [django.server:249] "GET /member/step03/ HTTP/1.1" 500 180465
+[2025-12-22 17:03:47] INFO [django.server:249] "GET /chart2/ HTTP/1.1" 200 13036
+[2025-12-22 17:03:48] ERROR [django.request:249] Internal Server Error: /member/step03/
+Traceback (most recent call last):
+  File "C:\python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\python\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\workspace\Django\d1222\jardin_pjt\member\views.py", line 6, in step03
+    return render(request, 'step03.html')
+  File "C:\python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\python\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\python\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\python\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\python\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\python\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\python\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\python\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\python\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 307, in do_extends
+    nodelist = parser.parse()
+  File "C:\python\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 235, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\python\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\python\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\python\Lib\site-packages\django\template\loader_tags.py", line 229, in do_block
+    raise TemplateSyntaxError(
+        "'%s' tag with name '%s' appears more than once" % (bits[0], block_name)
+    )
+django.template.exceptions.TemplateSyntaxError: Template: C:\workspace\Django\d1222\jardin_pjt\member\templates\step03.html, 'block' tag with name 'body-block' appears more than once
+[2025-12-22 17:03:48] ERROR [django.server:249] "GET /member/step03/ HTTP/1.1" 500 180465
+[2025-12-22 17:03:59] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 23353
+[2025-12-22 17:03:59] WARNING [django.request:249] Not Found: /member/images/bg/bg_step.png
+[2025-12-22 17:03:59] WARNING [django.server:249] "GET /member/images/bg/bg_step.png HTTP/1.1" 404 3974
+[2025-12-22 17:03:59] WARNING [django.server:249] "GET /static/css/none HTTP/1.1" 404 1838
+[2025-12-22 17:03:59] INFO [django.server:249] "GET /static/images/ico/ico_address.gif HTTP/1.1" 200 344
+[2025-12-22 17:03:59] INFO [django.server:249] "GET /static/images/bg/bg_location.gif HTTP/1.1" 200 164
+[2025-12-22 17:07:19] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 23559
+[2025-12-22 17:07:19] WARNING [django.request:249] Not Found: /member/images/bg/bg_step.png
+[2025-12-22 17:07:19] WARNING [django.server:249] "GET /member/images/bg/bg_step.png HTTP/1.1" 404 3974
+[2025-12-22 17:07:58] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 23564
+[2025-12-22 17:07:58] INFO [django.server:249] "GET /static/images/bg/bg_step.png HTTP/1.1" 200 3255
+[2025-12-22 17:09:23] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 23715
+[2025-12-22 17:09:55] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 23737
+[2025-12-22 17:12:51] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24074
+[2025-12-22 17:17:06] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:17:08] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:17:13] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\urls.py changed, reloading.
+[2025-12-22 17:17:15] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:17:44] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:17:45] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:17:49] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:17:51] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:18:01] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:18:03] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:19:06] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:19:08] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:19:18] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:19:20] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:19:43] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:19:45] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:19:55] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:19:57] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:20:28] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:20:30] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:20:32] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:20:34] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:20:46] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:20:47] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:21:31] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:21:33] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:21:52] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:21:54] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:22:07] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24253
+[2025-12-22 17:22:11] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:22:11] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:22:11] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:23:37] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24254
+[2025-12-22 17:23:42] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:23:42] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:23:42] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:23:42] INFO [django.server:82] - Broken pipe from ('127.0.0.1', 51091)
+[2025-12-22 17:24:05] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24255
+[2025-12-22 17:24:07] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24255
+[2025-12-22 17:24:07] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24255
+[2025-12-22 17:24:08] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24255
+[2025-12-22 17:24:11] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:24:11] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:24:11] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:24:33] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24275
+[2025-12-22 17:24:33] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:24:33] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:24:33] INFO [django.server:82] - Broken pipe from ('127.0.0.1', 52546)
+[2025-12-22 17:24:33] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:24:38] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:24:38] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:24:38] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:25:29] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24254
+[2025-12-22 17:25:29] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:25:29] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:25:29] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:25:31] WARNING [django.security.csrf:249] Forbidden (CSRF token missing.): /member/idCheck/
+[2025-12-22 17:25:31] WARNING [django.server:249] "POST /member/idCheck/ HTTP/1.1" 403 2516
+[2025-12-22 17:26:45] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24356
+[2025-12-22 17:26:45] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:26:45] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:26:45] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:27:01] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24357
+[2025-12-22 17:27:01] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:27:01] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:27:01] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:27:01] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24357
+[2025-12-22 17:27:01] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:27:01] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:27:01] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:27:03] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:28:04] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:28:07] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:28:08] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:29:49] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24359
+[2025-12-22 17:29:50] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:29:55] WARNING [django.request:249] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-12-22 17:29:55] WARNING [django.server:249] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3922
+[2025-12-22 17:29:55] WARNING [django.server:249] "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 1883
+[2025-12-22 17:29:55] INFO [django.server:82] - Broken pipe from ('127.0.0.1', 54793)
+[2025-12-22 17:29:58] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:29:58] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:29:58] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:29:58] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:29:58] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:29:59] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:30:00] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 41
+[2025-12-22 17:30:04] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:30:07] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 41
+[2025-12-22 17:30:26] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24360
+[2025-12-22 17:30:28] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 41
+[2025-12-22 17:30:31] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:30:33] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:30:35] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:31:57] INFO [django.server:249] "GET /static/images/bg/bg_left.png HTTP/1.1" 200 2865
+[2025-12-22 17:31:59] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24360
+[2025-12-22 17:32:09] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24357
+[2025-12-22 17:32:11] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:32:37] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24353
+[2025-12-22 17:32:38] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:32:41] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 41
+[2025-12-22 17:32:55] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24357
+[2025-12-22 17:32:56] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:32:58] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 41
+[2025-12-22 17:33:11] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 41
+[2025-12-22 17:35:04] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:35:04] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24357
+[2025-12-22 17:35:06] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:35:06] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:35:26] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 42
+[2025-12-22 17:35:28] INFO [django.server:249] "POST /member/idCheck/ HTTP/1.1" 200 41
+[2025-12-22 17:36:11] INFO [django.utils.autoreload:265] C:\workspace\Django\d1222\jardin_pjt\member\views.py changed, reloading.
+[2025-12-22 17:36:13] INFO [django.utils.autoreload:681] Watching for file changes with StatReloader
+[2025-12-22 17:36:18] INFO [django.server:249] "GET /admin/home/chartdata/ HTTP/1.1" 200 13192
+[2025-12-22 17:36:18] INFO [django.server:249] "GET /admin/jsi18n/ HTTP/1.1" 200 9048
+[2025-12-22 17:36:43] INFO [django.server:249] "GET /member/step03/ HTTP/1.1" 200 24357
