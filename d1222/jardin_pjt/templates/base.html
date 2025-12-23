@@ -12,14 +12,14 @@
 <link rel="stylesheet" type="text/css" href="/static/css/layout.css?v=Y" />
 <link rel="stylesheet" type="text/css" href="/static/css/content.css?v=Y" />
 {% block css-block %}{% endblock %}
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script src="/static/js/chart.js"></script>
 <script type="text/javascript" src="/static/js/top_navi.js"></script>
 <script type="text/javascript" src="/static/js/main.js"></script>
 <script type="text/javascript" src="/static/js/common.js"></script>
 <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="/static/js/idangerous.swiper-2.1.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.anchor.js"></script>
-<script src="/static/js/jquery-3.6.0.min.js"></script>
-<script src="/static/js/chart.js"></script>
 {% block extra_head %}{% endblock %}
 <!--[if lt IE 9]>
 <script type="text/javascript" src="/static/js/html5.js"></script>
@@ -151,33 +151,7 @@ $(document).ready(function() {
 <body>
 <div id="allwrap">
 <div id="wrap">
-	<div id="header">
-		<div id="snbBox">
-			<h1><img src="/static/images/txt/logo.gif" alt="JARDIN SHOP" /></h1>
-			<div id="quickmenu">
-				<div id="mnaviOpen"><img src="/static/images/btn/btn_mnavi.gif" width="33" height="31" alt="메뉴열기" /></div>
-				<div id="mnaviClose"><img src="/static/images/btn/btn_mnavi_close.gif" width="44" height="43" alt="메뉴닫기" /></div>
-				<ul>
-					<li><a href="#">EVENT</a></li>
-					<li><a href="#">CUSTOMER</a></li>
-					<li><a href="/chart/">chart</a></li>
-				</ul>
-			</div>
-			<div id="snb">
-				<ul>
-					<li><a href="#">LOGIN</a></li>
-					<li><a href="/member/step03">JOIN</a></li>
-					<li><a href="#">MY PAGE</a></li>
-					<li><a href="/admin/">admin</a></li>
-				</ul>
-
-				<div id="search">
-					<input type="text" class="searchType" />
-					<input type="image" src="/static/images/btn/btn_main_search.gif" width="23" height="20" alt="검색하기" />
-				</div>
-			</div>
-		</div>
-	</div>
+	{% include "header.html" %}
 	{% include "nav.html" %}
 
 	<!-- mainSection -->
@@ -205,8 +179,8 @@ $(document).ready(function() {
 		
 		<!-- main contents -->
 		<div id="mainContents">
-    {% block body-block %}
-    {% endblock %}
+			{% block body-block %}
+			{% endblock %}
 		</div>
 		<!-- //main contents -->
 	</div>

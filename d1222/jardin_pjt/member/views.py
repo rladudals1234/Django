@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from member.models import Member
 
@@ -19,3 +19,26 @@ def idCheck(request):
                'result':qs.exists()
     }
     return JsonResponse(context)
+
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'login.html')
+    elif request.method == 'POST':
+        id = request.POST.get("id")
+        pw = request.POST.get("pw")
+        qs = Member.objects.filter(id=id, pw=pw)
+        if qs.exists():
+            result = "success"
+            request.session['session_id'] = id
+            request.session['session_name'] = qs[0].name
+        else:
+            result = "fail"
+        context = {'resultCode':result}
+        return JsonResponse(context)
+    
+def logout(request):
+    # 세션 모두 삭제
+    request.session.clear()
+    context = {"msg":"로그아웃"}
+    return redirect('/')
+    # return JsonResponse(context)
