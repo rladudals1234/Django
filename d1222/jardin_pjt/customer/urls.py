@@ -3,5 +3,7 @@ from . import views
 
 app_name = 'customer'
 urlpatterns = [
-    path('notice/', views.notice, name='notice'),
+    path('clist/', views.clist, name='clist'),
+    path('cview/<int:bno>/', views.cview, name='cview'),
+    path('cwrite/', views.cwrite, name='cwrite'),
 ]

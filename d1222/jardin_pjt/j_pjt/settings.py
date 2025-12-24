@@ -86,62 +86,62 @@ DATABASES = {
 }
 
 # 로그를 저장할 디렉토리 생성
-LOG_DIR = os.path.join(BASE_DIR, 'logs')
-if not os.path.exists(LOG_DIR):
-    os.makedirs(LOG_DIR)
+# LOG_DIR = os.path.join(BASE_DIR, 'logs')
+# if not os.path.exists(LOG_DIR):
+#     os.makedirs(LOG_DIR)
 
 # 로그 설정(문제발생시 로그 추적용 - 로컬개발이랑 서버(개발서버,실서버)쪽 나눠서 서버 배포할때만 파일 남기는 것 적용도 가능)
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'format1': {
-            'format': '[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s',
-            'datefmt': '%Y-%m-%d %H:%M:%S',
-        },
-    },
-    'handlers': {
-        # 1. 일반 서비스 로그용 핸들러 (django.log)
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': os.path.join(LOG_DIR, 'django.log'),
-            'when': 'midnight',  # 매일 자정에 로그 로테이션
-            'interval': 1,       # 1일 간격
-            'backupCount': 15,   # 최대 15일치 보관 (15개 넘으면 가장 오래된 파일 삭제)
-            'formatter': 'format1',
-            'encoding': 'utf-8',
-        },
-        # 2. DB 쿼리 로그 전용 핸들러 (db_queries.log)
-        'db_file': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': os.path.join(LOG_DIR, 'db_queries.log'), # DB용 파일 일단 따로 관리
-            'when': 'midnight',
-            'interval': 1,
-            'backupCount': 7, # DB로그는 용량이 크므로 7일치만
-            'formatter': 'format1',
-            'encoding': 'utf-8',
-        },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'format1',
-        },
-    },
-    'loggers': {
-        'django.db.backends': {  # SQL 쿼리 로그
-            'handlers': ['db_file','console'],
-            'level': 'DEBUG',
-            'propagate': False, # DB 로그가 django.log에 중복으로 쌓이는 것을 방지
-        },
-        'django': {
-            'handlers': ['file', 'console'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'format1': {
+#             'format': '[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s',
+#             'datefmt': '%Y-%m-%d %H:%M:%S',
+#         },
+#     },
+#     'handlers': {
+#         # 1. 일반 서비스 로그용 핸들러 (django.log)
+#         'file': {
+#             'level': 'INFO',
+#             'class': 'logging.handlers.TimedRotatingFileHandler',
+#             'filename': os.path.join(LOG_DIR, 'django.log'),
+#             'when': 'midnight',  # 매일 자정에 로그 로테이션
+#             'interval': 1,       # 1일 간격
+#             'backupCount': 15,   # 최대 15일치 보관 (15개 넘으면 가장 오래된 파일 삭제)
+#             'formatter': 'format1',
+#             'encoding': 'utf-8',
+#         },
+#         # 2. DB 쿼리 로그 전용 핸들러 (db_queries.log)
+#         'db_file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.handlers.TimedRotatingFileHandler',
+#             'filename': os.path.join(LOG_DIR, 'db_queries.log'), # DB용 파일 일단 따로 관리
+#             'when': 'midnight',
+#             'interval': 1,
+#             'backupCount': 7, # DB로그는 용량이 크므로 7일치만
+#             'formatter': 'format1',
+#             'encoding': 'utf-8',
+#         },
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'format1',
+#         },
+#     },
+#     'loggers': {
+#         'django.db.backends': {  # SQL 쿼리 로그
+#             'handlers': ['db_file','console'],
+#             'level': 'DEBUG',
+#             'propagate': False, # DB 로그가 django.log에 중복으로 쌓이는 것을 방지
+#         },
+#         'django': {
+#             'handlers': ['file', 'console'],
+#             'level': 'INFO',
+#             'propagate': True,
+#         },
+#     },
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
