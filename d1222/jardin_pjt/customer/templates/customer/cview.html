@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block extra_head %}
 {% endblock %}
+{% block css-block %}
+<style>
+	a{
+		cursor: pointer;
+	}
+</style>
+{% endblock %}
 {% block body-block %}
 
 <div id="allwrap">
@@ -24,7 +31,7 @@
 					<li><a href="#" id="leftNavi3">FAQ</span></a></li>
 					<li class="last"><a href="#" id="leftNavi4">이용안내</a></li>
 				</ul>			
-			</div><script type="text/javascript">initSubmenu(1,0);</script>
+			</div><script type="text/javascript">//initSubmenu(1,0);</script>
 
 
 			<!-- contents -->
@@ -80,6 +87,128 @@
 						</table>
 					</div>
 					<!-- //이전다음글 -->
+
+					<!-- 댓글-->
+					<script>
+						function colist(co){
+							let html="";
+							//댓글 총 개수
+							$(".co_count").text(co.length);
+							for(let i=0; i<co.length; i++){
+								html+=`<ul id="${co[i].cno}">
+									<li class="name">${co[i].member_id} <span>[${moment(co[i].cdate).format('YYYY-MM-DD HH:mm:ss')}]</span></li>
+									<li class="txt">${co[i].ccontent}</li>
+									<li class="btn">
+										<a class="rebtn updateBtn">수정</a>
+										<a class="rebtn deleteBtn">삭제</a>
+									</li>
+								</ul>`;
+							}
+							//하단댓글 리스트 위치에 추가
+							$(".replyBox").html(html);
+						}
+						$(function(){
+							$(document).on('click','.replyBtn',function(){
+								data = $("#cofrm").serialize();
+								csrfToken='{{csrf_token}}';
+								$.ajax({
+									url:'/comment/cowrite/',
+									headers:{'X-CSRFToken':csrfToken},
+									type:'post',
+									dataType:'json',
+									data:data,
+									success:function(data){
+										if(data.result=="success"){
+											alert("댓글을 등록합니다.");
+											let co = data.co;
+											console.log(co);
+											colist(co);
+											//$(".replyBox").prepend(html);
+										}else{
+											alert("댓글 등록에 실패하였습니다.");
+										}
+									},
+									error:function(xhr,errMsg,err){
+										alert(errMsg);
+									}
+								});
+							});
+							$(document).on('click','.deleteBtn',function(){
+								if(confirm("댓글을 삭제하시겠습니까?")){
+									data = $("#cofrm").serialize();
+									let cno = $(this).closest("ul").attr("id");
+									csrfToken='{{csrf_token}}';
+									$.ajax({
+										url:'/comment/codelete/',
+										headers:{'X-CSRFToken':csrfToken},
+										type:'post',
+										dataType:'json',
+										data:{
+											'cno':cno,
+											'bno':'{{c.bno}}'
+										},
+										success:function(data){
+											if(data.result=="success"){
+												alert("댓글을 삭제합니다.");
+												let co = data.co;
+												colist(co);
+											}else{
+												alert("댓글 삭제에 실패하였습니다.");
+											}
+										},
+										error:function(xhr,errMsg,err){
+											alert(errMsg);
+										}
+									});
+								}
+							});
+						});
+					</script>
+					<div class="replyWrite">
+						<form id="cofrm">
+						{% csrf_token %}
+						<ul>
+							<li class="in">
+								<input type="hidden" name="bno" value="{{c.bno}}">
+								<p class="txt">총 <span class="orange co_count">{{ comment_qs.count }}</span> 개의 댓글이 달려있습니다.</p>
+								<p class="password">비밀번호&nbsp;&nbsp;<input type="password" name="cpw" class="replynum" /></p>
+								<textarea class="replyType" name="ccontent"></textarea>
+							</li>
+							<li class="btn"><a class="replyBtn">등록</a></li>
+						</ul>
+						<p class="ntic">※ 비밀번호를 입력하시면 댓글이 비밀글로 등록 됩니다.</p>
+						</form>
+					</div>
+
+					<div class="replyBox">
+						{% for co in comment_qs %}
+						<ul id="{{co.cno}}">
+							<li class="name">{{co.member.id}} <span>[{{co.cdate|date:'Y-m-d H:i:s'}}]</span></li>
+							<li class="txt">{{co.ccontent}}</li>
+							<li class="btn">
+								<a class="rebtn updateBtn">수정</a>
+								<a class="rebtn deleteBtn">삭제</a>
+							</li>
+						</ul>
+						{% endfor %}
+						<!-- 수정폼, 비밀글 -->
+						{% comment %} <ul>
+							<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>
+							<li class="txt"><textarea class="replyType"></textarea></li>
+							<li class="btn">
+								<a href="#" class="rebtn">수정</a>
+								<a href="#" class="rebtn">삭제</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>
+							<li class="txt">
+								<a href="password.html" class="passwordBtn"><span class="orange">※ 비밀글입니다.</span></a>
+							</li>
+						</ul> {% endcomment %}
+						<!-- 수정폼, 비밀글 -->
+					</div>
+					<!-- //댓글 -->
 
 
 					<!-- Btn Area -->

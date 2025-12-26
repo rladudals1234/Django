@@ -25,6 +25,7 @@ urlpatterns = [
     path('member/', include('member.urls')),
     path('product/', include('product.urls')),
     path('customer/', include('customer.urls')),
+    path('comment/', include('comment.urls')),
 ]
 
 # 파일업로드시 url구성, urlpatterns에 추가 설정

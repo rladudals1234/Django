@@ -3,6 +3,7 @@ from customer.models import Board
 from django.core.paginator import Paginator
 from django.db.models import F, Q, Sum, Count
 from member.models import Member
+from comment.models import Comment
 
 # Create your views here.
 def clist(request):
@@ -28,6 +29,7 @@ def clist(request):
     context = {'list':list_qs,'page':page, 'category':category, 'search':search}
     return render(request, 'customer/clist.html', context)
 
+# 고객센터 페이지 뷰
 def cview(request, bno):
     qs = Board.objects.get(bno=bno)
     # 이전글----------------------------------------------
@@ -35,10 +37,12 @@ def cview(request, bno):
     # 다음글----------------------------------------------
     # 답글달기가 포함되어 있을때 쿼리문
     next_qs = Board.objects.filter(Q(bgroup__gt=qs.bgroup) | Q(bgroup=qs.bgroup, bstep__lt=qs.bstep)).order_by('bgroup','-bstep').first()
+    comment_qs = Comment.objects.filter(board=qs).order_by('-cno')
     context = {
         'c':qs,
         'pre_c':pre_qs,
-        'next_c':next_qs
+        'next_c':next_qs,
+        'comment_qs':comment_qs
     }
     return render(request, 'customer/cview.html', context)
 
