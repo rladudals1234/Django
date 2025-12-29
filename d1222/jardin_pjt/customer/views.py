@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from customer.models import Board
 from django.core.paginator import Paginator
 from django.db.models import F, Q, Sum, Count
@@ -30,6 +31,7 @@ def clist(request):
     return render(request, 'customer/clist.html', context)
 
 # 고객센터 페이지 뷰
+# Board : 좋아요도 포함되어 전달됨.
 def cview(request, bno):
     qs = Board.objects.get(bno=bno)
     # 이전글----------------------------------------------
@@ -60,3 +62,26 @@ def cwrite(request):
         qs.bgroup = qs.bno
         qs.save()
         return redirect('/customer/clist/')
+    
+def clikes(request):
+    bno = request.POST.get('bno')
+    board = Board.objects.get(bno=bno)
+    id = request.session.get('session_id')
+    member = Member.objects.get(id=id)
+    
+    # board.likes.all() : 게시글에 좋아요를 클릭한 회원
+    # member.likes_member.all() : 현재회원이 좋아요를 클릭한 게시글 전체목록
+    
+    if board.likes.filter(pk=member.id).exists():
+        # 제거
+        board.likes.remove(member)  # likes안에 member를 제거
+        like_chk = 0
+    else:
+        # 추가
+        board.likes.add(member) # likes안에 member를 추가
+        like_chk = 1
+    count = board.likes.count() # 좋아요 개수
+    print("좋아요 개수 확인",count)
+        
+    context={'result':'success', 'like_chk':like_chk, 'count':count}
+    return JsonResponse(context)

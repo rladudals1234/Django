@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block extra_head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% endblock %}
 {% block css-block %}
 <style>
@@ -38,12 +39,45 @@
 			<div id="contents">
 				<div id="customer">
 					<h2><strong>NOTICE</strong><span>쟈뎅샵 소식을 전해드립니다.</span></h2>
-
+					<script>
+						$(function(){
+							$("#likes_icon").click(function(){
+								$.ajax({
+									url:'/customer/clikes/',
+									type:'post',
+									headers:{'X-CSRFToken':'{{csrf_token}}'},
+									data:{'bno':'{{c.bno}}'},
+									dataType:'json',
+									success:function(data){
+										let dataHtml;
+										if(data.like_chk == "1"){	//추가
+											dataHtml = `<i class="fa-solid fa-heart"></i> (${data.count})`
+										}else{				//삭제
+											dataHtml = `<i class="fa-regular fa-heart"></i> (${data.count})`
+										}
+										$('#likes_icon').html(dataHtml);
+									},
+									error:function(xhr,errMsg,err){
+										alert("서버 실패:"+errMsg);
+									}
+								})
+							})
+						})
+					</script>
 					<div class="viewDivMt">
 						<div class="viewHead">
 							<div class="subject">
 								<ul>
 									<li>{{c.btitle}}</li>
+									<li style="padding-left: 500px;">
+										좋아요 : <a id="likes_icon">
+											{% if c.member in c.likes.all %}
+											<i class="fa-solid fa-heart"></i> ({{c.likes.count}})
+											{% else %}
+											<i class="fa-regular fa-heart"></i> ({{c.likes.count}})
+											{% endif %}
+										</a>
+									</li>
 								</ul>
 							</div>
 							<div class="day">
