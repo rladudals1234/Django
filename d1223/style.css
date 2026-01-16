@@ -1,0 +1,202 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 페이지 내용이 적어도 푸터가 바닥에 있게 함 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 헤더 메뉴 스타일 --- */
+.navbar {
+    display: flex; 
+    justify-content: space-between; /* 로고/메뉴/로그인 간격 배분 */
+    align-items: center;
+    padding: 0 5%;
+    height: 100px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* --- 햄버거 메뉴 아이콘 스타일 --- */
+.hamburger-menu {
+    display: none; /* 기본적으로 데스크톱에서는 숨김 */
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 22px; /* 세 줄 높이 조정 */
+    position: absolute; /* 절대 위치 지정 */
+    right: 5%; /* 오른쪽 끝에 배치 */
+    z-index: 2000; 
+}
+
+.bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 메뉴 컨테이너 (모바일에서 숨겨질 부분) */
+.nav-container {
+    /* 데스크톱 스타일 유지 */
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+/* 로고 스타일 */
+.logo {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #007bff;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 80px; /* 메뉴 간격 확대 */
+    height: 100%;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    transition: color 0.3s ease-in-out; /* 텍스트 색상 전환 효과 */
+    position: relative; /* ::after의 기준점 */
+    padding-bottom: 5px; /* 선이 텍스트와 너무 붙지 않게 여백 추가 */
+}
+
+.nav-links li:hover {
+    /*border-bottom: 2px solid #007bff;*/
+    cursor:pointer
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+/* 우측 로그인 버튼 */
+.user-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-btn {
+    padding: 8px 24px;
+    border-radius: 20px;
+    background-color: #f0f7ff;
+    color: #007bff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+/* --- 메인 콘텐츠 스타일 --- */
+.content {
+    flex: 1; /* 남은 공간을 모두 차지하여 푸터를 아래로 밀어냄 */
+    /*padding: 40px 5%;*/
+}
+
+/* --- 푸터 스타일 --- */
+.footer {
+    background-color: #f4f4f4;
+    color: #666;
+    padding: 20px 5%;
+    border-top: 1px solid #ddd;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* --- X자 모양 애니메이션 (active 클래스 적용 시) --- */
+/* 첫 번째 bar를 45도 회전시켜 가운데로 이동 (정확한 translateY 값 적용) */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(5px) rotate(45deg); 
+}
+
+/* 두 번째 bar (가운데) 숨기기 */
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+/* 세 번째 bar를 -45도 회전시켜 가운데로 이동 (정확한 translateY 값 적용) */
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+
+/* --- 반응형 설정 (모바일 뷰: 768px 이하) --- */
+@media (max-width: 768px) {
+    /* 모바일에서 로그인 버튼과 햄버거 아이콘이 겹치지 않도록 */
+    .user-menu {
+         /* 햄버거 메뉴 너비(30px) + 간격(15px) 정도의 마진 확보 */
+         margin-right: 50px; 
+    }
+
+    .nav-container {
+        position: fixed;
+        right: -100%;
+        top: 80px;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #fff;
+        transition: 0.3s ease-in-out;
+        z-index: 1500;
+        
+        /* [핵심] 내부 스크롤 추가 */
+        overflow-y: auto; 
+        padding: 30px 20px;
+        display: block; /* flex 해제하여 스크롤 흐름 확보 */
+    }
+
+    .nav-container.active {
+        right: 0;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .hamburger-menu {
+        display: flex; 
+    }
+}

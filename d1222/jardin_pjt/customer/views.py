@@ -5,6 +5,12 @@ from django.core.paginator import Paginator
 from django.db.models import F, Q, Sum, Count
 from member.models import Member
 from comment.models import Comment
+# get, post, put, delete방식 -> 지정
+from rest_framework.decorators import api_view
+# JsonResponse -> Response
+from rest_framework.response import Response
+# 상태값 출력
+from rest_framework import status
 
 # Create your views here.
 def clist(request):
@@ -29,6 +35,51 @@ def clist(request):
     
     context = {'list':list_qs,'page':page, 'category':category, 'search':search}
     return render(request, 'customer/clist.html', context)
+
+# 게시판 리스트 - GET방식으로 호출
+@api_view(['GET'])
+def clistJson(request):
+    # print("페이지 번호", request.data.get('page',1))  # post방식
+    # print("페이지 번호", request.GET.get('page',1))
+    print("페이지 번호", request.query_params.get('page',1))
+    qs = Board.objects.all().order_by('-bno')
+    # Json형태로 전송하기 위해, list타입으로 변경
+    l_qs = list(qs.values())
+    context = {'list':l_qs}
+    return Response(context, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def cviewJson(request):
+    bno = request.query_params.get('bno')
+    qs = Board.objects.filter(bno=bno)
+    l_qs = list(qs.values())
+    context = {'result':l_qs[0]}
+    return Response(context, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+def cwriteJson(request):
+    id = request.data.get('id')
+    btitle = request.data.get('btitle')
+    bcontent = request.data.get('bcontent')
+    member_qs = Member.objects.get(id=id)
+    # db에 저장
+    qs = Board.objects.create(btitle=btitle, bcontent=bcontent, member=member_qs)
+    qs.bgroup = qs.bno
+    qs.save()
+    l_qs = list(Board.objects.filter(bno=qs.bno).values())
+    context = {'result':'success', 'board':l_qs}
+    return Response(context, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+def cdeleteJson(request, bno):
+    # bno = request.data.get('bno')
+    name = request.data.get('name')
+    print(name)
+    # db에 저장
+    qs = Board.objects.filter(bno=bno)
+    qs.delete()
+    context = {'result':'success'}
+    return Response(context, status=status.HTTP_200_OK)
 
 # 고객센터 페이지 뷰
 # Board : 좋아요도 포함되어 전달됨.

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
+import json
 from member.models import Member
 
 # Create your views here.
@@ -17,6 +18,31 @@ def idCheck(request):
     context = {
                'resultCode':'success', 
                'result':qs.exists()
+    }
+    return JsonResponse(context)
+
+def userAll(request):
+    id = request.GET.get("id","")
+    name = request.GET.get("name","")
+    qs = Member.objects.all()
+    l_qs = list(qs.values())
+    context = {
+        'resultCode':'success', 
+        'list':l_qs
+    }
+    return JsonResponse(context)
+
+def userInsert(request):
+    # id = request.POST.get("id","")
+    # name = request.POST.get("name","")
+    body = json.loads(request.body)     # post는 변환해서
+    id = body.get('id')
+    name = body.get('name')
+    qs = Member.objects.all()
+    l_qs = list(qs.values())
+    context = {
+        'resultCode':'success', 
+        'list':l_qs
     }
     return JsonResponse(context)
 
